@@ -6,11 +6,12 @@ class App extends Component {
   constructor() {
     super();
     // declare state
+    this.count = 1;
     this.state = {
-      task: { text: "", id: uniqid() },
-      // put tasks in the tasks array
+      task: { text: "", id: uniqid(), num: this.count },
+      
       tasks: [],
-      numOfTasks: this.tasks?.length, // NumOf items
+      // numOfTasks: this.tasks?.length, // NumOf items
     };
   }
   // handle change in the input field
@@ -21,6 +22,7 @@ class App extends Component {
       task: {
         text: e.target.value,
         id: this.state.task.id,
+        num: this.count,
       },
     });
     console.log(this.state);
@@ -30,22 +32,23 @@ class App extends Component {
     e.preventDefault();
     this.setState(
       {
-        // returns new array with the new added task
+       
         tasks: this.state.tasks.concat(this.state.task),
-        // then set the task.text to be empty again, like how it was in the first place
+       
         task: {
           text: "",
           id: uniqid(),
+          num: this.count++,
         },
       },
       () => console.log(this.state.tasks)
     );
-    // console.log(this.state.tasks);
+    
   };
 
   render() {
     // unpacking task prop and tasks prop from the state object
-    const { task, tasks, numOfTasks } = this.state;
+    const { task, tasks } = this.state;
 
     return (
       <div>
@@ -58,7 +61,7 @@ class App extends Component {
           />
 
           <button type="submit">Add Task</button>
-          <Overview tasks={tasks} numOfTasks={numOfTasks} />
+          <Overview tasks={tasks}  num = {task.num}/>
         </form>
       </div>
     );
