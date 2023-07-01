@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Component } from "react";
+import uniqid from "uniqid";
+import Overview from "./Overview";
 
-function App() {
-  const [count, setCount] = useState(0)
+class App extends Component {
+  constructor() {
+    super();
+    // declare state
+    this.state = {
+      task: { text: "", id: uniqid() },
+      // put tasks in the tasks array
+      tasks: [],
+    };
+  }
+  // handle change in the input field
+  // by setStating the state
+  // new state.task in as an argument
+  handleChange = (e) => {
+    this.setState({
+      task: {
+        text: e.target.value,
+        id: this.state.task.id,
+      },
+    });
+    console.log(this.state);
+  };
 
-  return (
-    <>
+  onSubmitTask = (e) => {
+    e.preventDefault();
+    this.setState({
+      // returns new array with the new added task
+      tasks: this.state.tasks.concat(this.state.task),
+      // then set the task.text to be empty again, like how it was in the first place
+      task: {
+        text: "",
+        id: uniqid(),
+      },
+    });
+    console.log(this.state.tasks);
+  };
+
+  render() {
+    // unpacking task prop and tasks prop from the state object
+    const { task, tasks } = this.state;
+
+    return (
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <form onSubmit={this.onSubmitTask} type="submit">
+          <label htmlFor="taskInput">Enter task</label>
+          <input
+            onChange={this.handleChange}
+            value={task.text} // value of input
+            id="taskInput"
+          />
+
+          <button type="submit">Add Task</button>
+          <Overview tasks={tasks} />
+        </form>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  }
 }
 
-export default App
+export default App;
