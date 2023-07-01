@@ -10,6 +10,7 @@ class App extends Component {
       task: { text: "", id: uniqid() },
       // put tasks in the tasks array
       tasks: [],
+      numOfTasks: this.tasks?.length, // NumOf items
     };
   }
   // handle change in the input field
@@ -27,21 +28,24 @@ class App extends Component {
 
   onSubmitTask = (e) => {
     e.preventDefault();
-    this.setState({
-      // returns new array with the new added task
-      tasks: this.state.tasks.concat(this.state.task),
-      // then set the task.text to be empty again, like how it was in the first place
-      task: {
-        text: "",
-        id: uniqid(),
+    this.setState(
+      {
+        // returns new array with the new added task
+        tasks: this.state.tasks.concat(this.state.task),
+        // then set the task.text to be empty again, like how it was in the first place
+        task: {
+          text: "",
+          id: uniqid(),
+        },
       },
-    });
-    console.log(this.state.tasks);
+      () => console.log(this.state.tasks)
+    );
+    // console.log(this.state.tasks);
   };
 
   render() {
     // unpacking task prop and tasks prop from the state object
-    const { task, tasks } = this.state;
+    const { task, tasks, numOfTasks } = this.state;
 
     return (
       <div>
@@ -54,7 +58,7 @@ class App extends Component {
           />
 
           <button type="submit">Add Task</button>
-          <Overview tasks={tasks} />
+          <Overview tasks={tasks} numOfTasks={numOfTasks} />
         </form>
       </div>
     );

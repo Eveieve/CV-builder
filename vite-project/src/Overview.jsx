@@ -1,11 +1,11 @@
 const Overview = (props) => {
   // takes 'tasks' array from props
-  const { tasks } = props;
-
+  const { tasks, numOfTasks } = props;
+  console.log(numOfTasks);
   return (
     <ul>
       {tasks.map((task) => {
-        return <li key={task.id}>{task.text}</li>;
+        return <p> {numOfTasks}</p>;
       })}
     </ul>
   );
