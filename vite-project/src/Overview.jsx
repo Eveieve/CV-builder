@@ -1,12 +1,11 @@
 const Overview = (props) => {
-  // takes 'tasks' array from props
-  const { tasks, numOfTasks } = props;
-  console.log(numOfTasks);
+  // unpacking properties of the object passed down from the parent 
+  const { tasks } = props;
   
   return (
     <ul>
       {tasks.map((task) => {
-        return <ul> {task.num}. {task.text} </ul>;
+        return <p key = {task.id}> {task.num}. {task.text} </p>;
       })}
     </ul>
   );

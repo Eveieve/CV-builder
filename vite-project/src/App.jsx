@@ -5,18 +5,20 @@ import Overview from "./Overview";
 class App extends Component {
   constructor() {
     super();
-    // declare state
+    // defining variables in the constructor 
     this.count = 1;
+
     this.state = {
-      task: { text: "", id: uniqid(), num: this.count },
-      
+      task: { text: "", 
+      id: uniqid(),
+      num: this.count },
+
       tasks: [],
-      // numOfTasks: this.tasks?.length, // NumOf items
     };
   }
-  // handle change in the input field
-  // by setStating the state
-  // new state.task in as an argument
+ // out of constructor - define methods 
+ // set the task.text value to: the target element's value 
+ // handle change of the input field (manage the state of it by the parent(App))
   handleChange = (e) => {
     this.setState({
       task: {
@@ -30,24 +32,24 @@ class App extends Component {
 
   onSubmitTask = (e) => {
     e.preventDefault();
+    // this.count++;
     this.setState(
       {
-       
         tasks: this.state.tasks.concat(this.state.task),
-       
         task: {
           text: "",
           id: uniqid(),
-          num: this.count++,
+          // num: this.count++, //? 
+          // num: this.count,
+          num: ++this.count,
         },
-      },
-      () => console.log(this.state.tasks)
+      }
     );
-    
+    console.log(this.state);
   };
 
   render() {
-    // unpacking task prop and tasks prop from the state object
+   
     const { task, tasks } = this.state;
 
     return (
@@ -56,7 +58,7 @@ class App extends Component {
           <label htmlFor="taskInput">Enter task</label>
           <input
             onChange={this.handleChange}
-            value={task.text} // value of input
+            value={task.text} 
             id="taskInput"
           />
 
