@@ -1,7 +1,5 @@
-function Name(props) {
-  const { value } = props;
-
-  return <p>{value}</p>;
+function Name({ onChange, name }) {
+  return <input onChange={onChange} name={name} type="text" />;
 }
 
 export default Name;
