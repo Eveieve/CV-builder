@@ -36,36 +36,39 @@ function App() {
   }
 
   function handleProjectsChange(e) {
-    setState((prevState) => {
-      return {
-        ...prevState,
-        projects: {
-          ...prevState.projects,
-          [e.target.name]: e.target.value,
-        },
-      };
-    });
+    // unpacking the target element's name , value key
+    const { name, value } = e.target;
+
+    setState((prevState) => ({
+      ...prevState,
+      projects: {
+        ...prevState.projects,
+        [name]: value,
+      },
+    }));
   }
 
   function handleExperienceChange(e) {
+    const { name, value } = e.target;
     setState((prevState) => {
       return {
         ...prevState,
         experience: {
           ...prevState.experience,
-          [e.target.name]: e.target.value,
+          [name]: value,
         },
       };
     });
   }
 
   function handleEducationChange(e) {
+    const { name, value } = e.target;
     setState((prevState) => {
       return {
         ...prevState,
         education: {
           ...prevState.education,
-          [e.target.name]: e.target.value,
+          [name]: value,
         },
       };
     });
