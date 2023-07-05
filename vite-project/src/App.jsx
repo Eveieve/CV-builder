@@ -99,14 +99,12 @@ function App() {
         name="email"
         value={state.email}
       />
-
       <input
         placeholder="Phone"
         onChange={handleChange}
         name="phone"
         value={state.phone}
       />
-
       <input
         placeholder="LinkedIn"
         onChange={handleChange}
@@ -129,12 +127,52 @@ function App() {
       />
       <Section sectionName="EXPERIENCE" />
       <input
+        placeholder="Company"
+        onChange={handleExperienceChange}
+        name="company"
+        value={state.experience.company}
+      />
+      <input
+        placeholder="Aug 20'- Mar 25'"
+        onChange={handleEducationChange}
+        name="name"
+        value={state.education.name}
+      />
+      <br />
+      <input
+        placeholder="Title"
+        onChange={handleExperienceChange}
+        name="title"
+        value={state.experience.title}
+      />
+      <br />▪{" "}
+      <input
         placeholder="Bullet Point"
         onChange={handleExperienceChange}
         name="bulletPoint"
         value={state.experience.bulletPoint}
       />
       <Section sectionName="EDUCATION" />
+      <input
+        placeholder="Name"
+        onChange={handleEducationChange}
+        name="name"
+        value={state.education.name}
+      />
+      <input
+        placeholder="Aug 20'- Mar 25'"
+        onChange={handleEducationChange}
+        name="name"
+        value={state.education.name}
+      />
+      <br />
+      <input
+        placeholder="Bsc. Computer Science"
+        onChange={handleEducationChange}
+        name="name"
+        value={state.education.name}
+      />
+      <br />
       <input
         placeholder="Bullet Point"
         onChange={handleEducationChange}
