@@ -3,6 +3,7 @@ import Header from "./Header.jsx";
 import { useState } from "react";
 import Section from "./Section.jsx";
 import BulletPoint from "./BulletPoint.jsx";
+
 function App() {
   const [state, setState] = useState({
     name: "",
@@ -31,12 +32,24 @@ function App() {
     });
   }
 
-  function handleNestedChange(e) {
+  function handleProjectsChange(e) {
     setState((prevState) => {
       return {
         ...prevState,
         projects: {
           ...prevState.projects,
+          [e.target.name]: e.target.value,
+        },
+      };
+    });
+  }
+
+  function handleExperienceChange(e) {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        experience: {
+          ...prevState.experience,
           [e.target.name]: e.target.value,
         },
       };
@@ -95,17 +108,17 @@ function App() {
       <Section sectionName="TECHNICAL SKILLS" />
       <Section sectionName="PROJECTS" />
       <input
-        placeholder="Description"
-        onChange={handleNestedChange}
+        placeholder="Bullet Point"
+        onChange={handleProjectsChange}
         name="bulletPoint"
         value={state.projects.bulletPoint}
       />
       <Section sectionName="EXPERIENCE" />
       <input
-        placeholder="Description"
-        // onChange={handleNestedChange}
-        name="projects"
-        value={state.projects.bulletPoint}
+        placeholder="Bullet Point"
+        onChange={handleExperienceChange}
+        name="bulletPoint"
+        value={state.experience.bulletPoint}
       />
     </>
   );
