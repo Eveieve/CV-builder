@@ -141,6 +141,7 @@ function App() {
         name="bulletPoint"
         value={state.education.bulletPoint}
       />
+      <Section sectionName="VOLUNTEER & INTERESTS" />
     </>
   );
 }
