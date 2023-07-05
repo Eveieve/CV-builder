@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./Header.jsx";
 import { useState } from "react";
 import Section from "./Section.jsx";
-
+import BulletPoint from "./BulletPoint.jsx";
 function App() {
   const [state, setState] = useState({
     name: "",
@@ -12,6 +12,12 @@ function App() {
     email: "",
     linkedIn: "",
     gitHub: "",
+    projects: {
+      bulletPoint: "",
+    },
+    experience: {
+      bulletPoint: "",
+    },
   });
   console.log(state);
   // function to handle change to the input and update the state accordingly
@@ -25,14 +31,36 @@ function App() {
     });
   }
 
+  function handleNestedChange(e) {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        projects: {
+          ...prevState.projects,
+          [e.target.name]: e.target.value,
+        },
+      };
+    });
+  }
   // function for ultimately saving the state => pdf!
   // passing in values for custom components' props
   return (
     <>
-      <input onChange={handleChange} name="name" value={state.name} />
-      <input onChange={handleChange} name="title" value={state.title} />
+      <input
+        placeholder="Name"
+        onChange={handleChange}
+        name="name"
+        value={state.name}
+      />
+      <input
+        placeholder="Title"
+        onChange={handleChange}
+        name="title"
+        value={state.title}
+      />
       <br />
       <input
+        placeholder="Address"
         className="address"
         onChange={handleChange}
         name="address"
@@ -64,7 +92,21 @@ function App() {
         name="gitHub"
         value={state.gitHub}
       />
+      <Section sectionName="TECHNICAL SKILLS" />
       <Section sectionName="PROJECTS" />
+      <input
+        placeholder="Description"
+        onChange={handleNestedChange}
+        name="bulletPoint"
+        value={state.projects.bulletPoint}
+      />
+      <Section sectionName="EXPERIENCE" />
+      <input
+        placeholder="Description"
+        // onChange={handleNestedChange}
+        name="projects"
+        value={state.projects.bulletPoint}
+      />
     </>
   );
 }
