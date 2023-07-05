@@ -19,6 +19,9 @@ function App() {
     experience: {
       bulletPoint: "",
     },
+    education: {
+      bulletPoint: "",
+    },
   });
   console.log(state);
   // function to handle change to the input and update the state accordingly
@@ -55,8 +58,19 @@ function App() {
       };
     });
   }
-  // function for ultimately saving the state => pdf!
-  // passing in values for custom components' props
+
+  function handleEducationChange(e) {
+    setState((prevState) => {
+      return {
+        ...prevState,
+        education: {
+          ...prevState.education,
+          [e.target.name]: e.target.value,
+        },
+      };
+    });
+  }
+
   return (
     <>
       <input
@@ -119,6 +133,13 @@ function App() {
         onChange={handleExperienceChange}
         name="bulletPoint"
         value={state.experience.bulletPoint}
+      />
+      <Section sectionName="EDUCATION" />
+      <input
+        placeholder="Bullet Point"
+        onChange={handleEducationChange}
+        name="bulletPoint"
+        value={state.education.bulletPoint}
       />
     </>
   );
