@@ -2,7 +2,7 @@ import "./App.css";
 import Personal from "./Personal";
 import { useState } from "react";
 import Section from "./Section.jsx";
-
+import Projects from "./Projects";
 function App() {
   const [state, setState] = useState({
     name: "",
@@ -15,9 +15,14 @@ function App() {
     techSkills: {
       skills: "",
     },
-    projects: {
-      bulletPoint: "",
-    },
+    projects: [
+      {
+        id: "",
+        title: "",
+        bulletPoint: "",
+      },
+    ],
+
     experience: {
       bulletPoint: "",
     },
@@ -65,13 +70,17 @@ function App() {
   // function to add input boxes when 'add button' is clicked
   function handleAddProject(e) {
     const { name, value } = e.target;
-
+    // adds new object(project item) into 'projects' key
     setState((prevState) => ({
       ...prevState,
-      projects: {
+      projects: [
         ...prevState.projects,
-        [name]: value,
-      },
+        {
+          id: "",
+          title: "",
+          bulletPoint: "",
+        },
+      ],
     }));
   }
 
@@ -111,19 +120,8 @@ function App() {
         value={state.techSkills.skills}
       />
       <Section sectionName="PROJECTS" />
-      <input
-        placeholder="Project Name"
-        onChange={handleProjectsChange}
-        name="projectName"
-        value={state.projects.projectName}
-      />
-      <input
-        placeholder="Bullet Point"
-        onChange={handleProjectsChange}
-        name="bulletPoint"
-        value={state.projects.bulletPoint}
-      />
-      <button onChange={handleAddProject}>Add project</button>
+      <Projects onChange={handleProjectsChange} projects={state.projects} />
+      <button onClick={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
       <input
         placeholder="Company"
