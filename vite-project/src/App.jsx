@@ -1,8 +1,7 @@
 import "./App.css";
-import Header from "./Header.jsx";
+import Personal from "./Personal";
 import { useState } from "react";
 import Section from "./Section.jsx";
-import BulletPoint from "./BulletPoint.jsx";
 
 function App() {
   const [state, setState] = useState({
@@ -48,6 +47,19 @@ function App() {
     }));
   }
 
+  // function to add input boxes when 'add button' is clicked
+  function handleAddProject(e) {
+    const { name, value } = e.target;
+
+    setState((prevState) => ({
+      ...prevState,
+      projects: {
+        ...prevState.projects,
+        [name]: value,
+      },
+    }));
+  }
+
   function handleExperienceChange(e) {
     const { name, value } = e.target;
     setState((prevState) => {
@@ -76,58 +88,22 @@ function App() {
 
   return (
     <>
-      <input
-        placeholder="Name"
-        onChange={handleChange}
-        name="name"
-        value={state.name}
-      />
-      <input
-        placeholder="Title"
-        onChange={handleChange}
-        name="title"
-        value={state.title}
-      />
-      <br />
-      <input
-        placeholder="Address"
-        className="address"
-        onChange={handleChange}
-        name="address"
-        value={state.address}
-      />
-      <input
-        placeholder="Email"
-        onChange={handleChange}
-        name="email"
-        value={state.email}
-      />
-      <input
-        placeholder="Phone"
-        onChange={handleChange}
-        name="phone"
-        value={state.phone}
-      />
-      <input
-        placeholder="LinkedIn"
-        onChange={handleChange}
-        name="linkedIn"
-        value={state.linkedIn}
-      />
-      <input
-        placeholder="GitHub"
-        onChange={handleChange}
-        name="gitHub"
-        value={state.gitHub}
-      />
+      <Personal onChange={handleChange} />
       <Section sectionName="TECHNICAL SKILLS" />
       <Section sectionName="PROJECTS" />
+      <input
+        placeholder="Project Name"
+        onChange={handleProjectsChange}
+        name="projectName"
+        value={state.projects.projectName}
+      />
       <input
         placeholder="Bullet Point"
         onChange={handleProjectsChange}
         name="bulletPoint"
         value={state.projects.bulletPoint}
       />
+      <button onChange={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
       <input
         placeholder="Company"
