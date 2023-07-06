@@ -62,10 +62,16 @@ function App() {
     const { name, value } = e.target;
 
     setState((prevState) => ({
+      // copy all other keys than 'projects'
       ...prevState,
+      // inside 'projects' array, copy all other keys
+      // overwrite the target element under Project section
+      // each input box under Projects section has a 'name' prop
       projects: [
-        ...prevState.projects,
+        // each object represents one project entity
         {
+          // ...prevState.projects,
+          ...prevState.projects[0],
           [name]: value,
         },
       ],
