@@ -1,5 +1,6 @@
 import "./App.css";
 import Personal from "./Personal";
+import Experience from "./Experience";
 import { useState } from "react";
 import Section from "./Section.jsx";
 import Projects from "./Projects";
@@ -56,7 +57,7 @@ function App() {
     }));
   }
 
-  function handleProjectsChange(e) {
+  function handleProjectsChange(e, id) {
     // unpacking the target element's name , value key
     // component will have 'name' and 'value' prop
     const { name, value } = e.target;
@@ -71,7 +72,7 @@ function App() {
         // each object represents one project entity
         {
           // ...prevState.projects,
-          ...prevState.projects[0],
+          ...prevState.projects[id],
           [name]: value,
         },
       ],
@@ -79,8 +80,8 @@ function App() {
   }
 
   // function to add input boxes when 'add button' is clicked
-  function handleAddProject(e) {
-    const { name, value } = e.target;
+  function handleAddProject() {
+    // const { name, value } = e.target;
     // adds new object(project item) into 'projects' key
     setState((prevState) => ({
       ...prevState,
@@ -140,7 +141,8 @@ function App() {
       />
       <button onClick={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
-      <input
+      <Experience onChange={handleExperienceChange} />
+      {/* <input
         placeholder="Company"
         onChange={handleExperienceChange}
         name="company"
@@ -165,7 +167,7 @@ function App() {
         onChange={handleExperienceChange}
         name="bulletPoint"
         value={state.experience.bulletPoint}
-      />
+      /> */}
       <Section sectionName="EDUCATION" />
       <input
         placeholder="Name"

@@ -3,7 +3,7 @@ import ProjectItem from "./ProjectItem";
 
 function Projects({ projects, onChange, value, onAdd, name }) {
   // unpack properties from the props object
-  console.log(typeof projects);
+
   const projectItems = projects.map((projectItem) => (
     // each ProjectItem(list) must have a key
     <ProjectItem
