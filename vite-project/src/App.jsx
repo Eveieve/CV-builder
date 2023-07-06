@@ -59,31 +59,23 @@ function App() {
   }
 
   function handleProjectsChange(e, id) {
-    // unpacking the target element's name , value key
-    // component will have 'name' and 'value' prop
     const { name, value } = e.target;
-
-    setState((prevState) => ({
-      // copy all other keys than 'projects'
-      ...prevState,
-      // inside 'projects' array, copy all other keys
-      // overwrite the target element under Project section
-      // each input box under Projects section has a 'name' prop
-      projects: [
-        // each object represents one project entity
-        {
-          // ...prevState.projects,
-          ...prevState.projects[id],
-          [name]: value,
-        },
-      ],
-    }));
+    console.log(id);
+    setState((prevState) => {
+      const newProjects = prevState.projects.map((projectItem) => {
+        if (projectItem.id === id) {
+          // copy all other keys in projectItem entity
+          console.log(projectItem);
+          // return a new projectItem entity with the updated key:value
+          return { ...projectItem, [name]: value };
+        }
+        return projectItem;
+      });
+      return { ...prevState, projects: [...newProjects] };
+    });
   }
 
-  // function to add input boxes when 'add button' is clicked
   function handleAddProject() {
-    // const { name, value } = e.target;
-    // adds new object(project item) into 'projects' key
     setState((prevState) => ({
       ...prevState,
       projects: [
@@ -133,19 +125,16 @@ function App() {
         value={state.techSkills.skills}
       />
       <Section sectionName="PROJECTS" />
-      {/* How do I have 'name' prop both 'title' and 'bulletPoint'? */}
       <Projects
+        state={state.projects}
         onChange={handleProjectsChange}
-        name="title"
         projects={state.projects}
-        value={state.projects.title}
       />
       <button onClick={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
       <Experience onChange={handleExperienceChange} />
       <Section sectionName="EDUCATION" />
       <Education onChange={handleEducationChange} />
-
       <Section sectionName="VOLUNTEER & INTERESTS" />
     </>
   );

@@ -1,21 +1,19 @@
-// define each project Item (object) in state.projects
-// the component at the very bottom?
-function ProjectItem({ projectItem, onChange }) {
-  // update state here
-  // how do I get the state here?
-
-  function handleProjectItemChange() {}
+function ProjectItem({
+  id, // id is passed down from the parent component Projects
+  projectItem,
+  onChange,
+}) {
   return (
     <>
       <input
         placeholder="Project Title"
-        onChange={onChange}
+        onChange={(e) => onChange(e, id)}
         name="title"
         value={projectItem.title}
       />
       <input
         placeholder="Bullet Point"
-        onChange={onChange}
+        onChange={(e) => onChange(e, id)}
         name="bulletPoint"
         value={projectItem.bulletPoint}
       />
