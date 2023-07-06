@@ -63,10 +63,12 @@ function App() {
 
     setState((prevState) => ({
       ...prevState,
-      projects: {
+      projects: [
         ...prevState.projects,
-        [name]: value,
-      },
+        {
+          [name]: value,
+        },
+      ],
     }));
   }
 
