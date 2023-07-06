@@ -76,9 +76,9 @@ function App() {
       projects: [
         ...prevState.projects,
         {
-          id: "",
           title: "",
           bulletPoint: "",
+          id: "",
         },
       ],
     }));

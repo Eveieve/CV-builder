@@ -5,7 +5,12 @@ function Projects({ projects, onChange, value, onAdd }) {
   // unpack properties from the props object
   const projectItems = projects.map((projectItem) => (
     // each ProjectItem(list) must have a key
-    <ProjectItem key={projectItem.id} id={projectItem.id} onChange={onChange} />
+    <ProjectItem
+      key={projectItem.id}
+      id={projectItem.id}
+      title={projectItem.title}
+      onChange={onChange}
+    />
   ));
 
   return <>{projectItems}</>;
