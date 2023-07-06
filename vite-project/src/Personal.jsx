@@ -1,6 +1,6 @@
 function Personal({ ...props }) {
-  // unpack onChange, name, value from the passed down obj(props)
   const { name, title, address, email, phone, linkedIn, gitHub } = { props };
+  /// spreading (...props) is only doing onChange = {onChange}
   return (
     <>
       <input {...props} placeholder="Name" name="name" value={name} />

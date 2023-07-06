@@ -12,6 +12,9 @@ function App() {
     email: "",
     linkedIn: "",
     gitHub: "",
+    techSkills: {
+      skills: "",
+    },
     projects: {
       bulletPoint: "",
     },
@@ -32,6 +35,18 @@ function App() {
         [e.target.name]: e.target.value,
       };
     });
+  }
+
+  function handleTechSkillsChange(e) {
+    const { name, value } = e.target;
+
+    setState((prevState) => ({
+      ...prevState,
+      techSkills: {
+        ...prevState.techSkills,
+        [name]: value,
+      },
+    }));
   }
 
   function handleProjectsChange(e) {
@@ -90,6 +105,11 @@ function App() {
     <>
       <Personal onChange={handleChange} />
       <Section sectionName="TECHNICAL SKILLS" />
+      <textarea
+        onChange={handleTechSkillsChange}
+        name="skills"
+        value={state.techSkills.skills}
+      />
       <Section sectionName="PROJECTS" />
       <input
         placeholder="Project Name"
