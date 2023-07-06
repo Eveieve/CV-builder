@@ -1,6 +1,7 @@
 import "./App.css";
 import Personal from "./Personal";
 import Experience from "./Experience";
+import Education from "./Education";
 import { useState } from "react";
 import Section from "./Section.jsx";
 import Projects from "./Projects";
@@ -142,59 +143,9 @@ function App() {
       <button onClick={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
       <Experience onChange={handleExperienceChange} />
-      {/* <input
-        placeholder="Company"
-        onChange={handleExperienceChange}
-        name="company"
-        value={state.experience.company}
-      />
-      <input
-        placeholder="Aug 20'- Mar 25'"
-        onChange={handleEducationChange}
-        name="name"
-        value={state.education.name}
-      />
-      <br />
-      <input
-        placeholder="Title"
-        onChange={handleExperienceChange}
-        name="title"
-        value={state.experience.title}
-      />
-      <br />▪{" "}
-      <input
-        placeholder="Bullet Point"
-        onChange={handleExperienceChange}
-        name="bulletPoint"
-        value={state.experience.bulletPoint}
-      /> */}
       <Section sectionName="EDUCATION" />
-      <input
-        placeholder="Name"
-        onChange={handleEducationChange}
-        name="name"
-        value={state.education.name}
-      />
-      <input
-        placeholder="Aug 20'- Mar 25'"
-        onChange={handleEducationChange}
-        name="name"
-        value={state.education.name}
-      />
-      <br />
-      <input
-        placeholder="Bsc. Computer Science"
-        onChange={handleEducationChange}
-        name="name"
-        value={state.education.name}
-      />
-      <br />
-      <input
-        placeholder="Bullet Point"
-        onChange={handleEducationChange}
-        name="bulletPoint"
-        value={state.education.bulletPoint}
-      />
+      <Education onChange={handleEducationChange} />
+
       <Section sectionName="VOLUNTEER & INTERESTS" />
     </>
   );

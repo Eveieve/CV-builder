@@ -1,10 +1,10 @@
-function Experience({ onChange, value }) {
+function Education({ onChange, value }) {
   return (
     <>
       <input
-        placeholder="Company"
+        placeholder="University Name"
         onChange={onChange}
-        name="company"
+        name="name"
         value={value}
       />
       <input
@@ -15,12 +15,12 @@ function Experience({ onChange, value }) {
       />
       <br />
       <input
-        placeholder="Title"
+        placeholder="Bsc. Computer Science"
         onChange={onChange}
-        name="title"
+        name="major"
         value={value}
       />
-      <br />▪{" "}
+      <br />
       <input
         placeholder="Bullet Point"
         onChange={onChange}
@@ -31,4 +31,4 @@ function Experience({ onChange, value }) {
   );
 }
 
-export default Experience;
+export default Education;
