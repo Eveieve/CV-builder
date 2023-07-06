@@ -3,6 +3,8 @@ import Personal from "./Personal";
 import { useState } from "react";
 import Section from "./Section.jsx";
 import Projects from "./Projects";
+import uniqid from "uniqid";
+
 function App() {
   const [state, setState] = useState({
     name: "",
@@ -17,9 +19,9 @@ function App() {
     },
     projects: [
       {
-        id: "",
         title: "",
         bulletPoint: "",
+        id: "",
       },
     ],
 
@@ -56,6 +58,7 @@ function App() {
 
   function handleProjectsChange(e) {
     // unpacking the target element's name , value key
+    // component will have 'name' and 'value' prop
     const { name, value } = e.target;
 
     setState((prevState) => ({
@@ -78,7 +81,7 @@ function App() {
         {
           title: "",
           bulletPoint: "",
-          id: "",
+          id: uniqid(),
         },
       ],
     }));
@@ -120,7 +123,13 @@ function App() {
         value={state.techSkills.skills}
       />
       <Section sectionName="PROJECTS" />
-      <Projects onChange={handleProjectsChange} projects={state.projects} />
+      {/* How do I have 'name' prop both 'title' and 'bulletPoint'? */}
+      <Projects
+        onChange={handleProjectsChange}
+        name="title"
+        projects={state.projects}
+        value={state.projects.title}
+      />
       <button onClick={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
       <input
