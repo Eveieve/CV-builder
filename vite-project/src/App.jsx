@@ -21,7 +21,7 @@ function App() {
       {
         title: "",
         bulletPoint: "",
-        id: "",
+        id: uniqid(),
       },
     ],
 
