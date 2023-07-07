@@ -116,6 +116,23 @@ function App() {
     });
   }
 
+  function handleAddExperience(e) {
+    //setState to update the state
+    const { name, value } = e.target;
+    setState((prevState) => ({
+      ...prevState,
+      experiences: [
+        ...prevState.experiences,
+        {
+          company: "",
+          title: "",
+          date: "",
+          bulletPoint: "",
+        },
+      ],
+    }));
+  }
+
   function handleEducationChange(e) {
     const { name, value } = e.target;
     setState((prevState) => {
@@ -146,6 +163,7 @@ function App() {
         onChange={handleExperienceChange}
         experiences={state.experiences}
       />
+      <button onClick={handleAddExperience}>Add Experience</button>
       <Section sectionName="EDUCATION" />
       <Education onChange={handleEducationChange} />
       <Section sectionName="VOLUNTEER & INTERESTS" />
