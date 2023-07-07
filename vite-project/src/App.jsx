@@ -36,9 +36,14 @@ function App() {
         bulletPoint: "",
       },
     ],
-    education: {
-      bulletPoint: "",
-    },
+    education: [
+      {
+        name: "",
+        date: "",
+        major: "",
+        bulletPoint: "",
+      },
+    ],
   });
   console.log(state);
   // function to handle change to the input and update the state accordingly
@@ -109,8 +114,8 @@ function App() {
             ...experienceItem,
             [name]: value,
           };
-          return { experienceItem };
         }
+        return { experienceItem };
       });
       return { ...prevState, experiences: [...newExperiences] };
     });
@@ -146,6 +151,25 @@ function App() {
     });
   }
 
+  function handleAddEducation(e) {
+    const { name, value } = e.target;
+
+    setState((prevState) => {
+      return {
+        ...prevState,
+        education: [
+          // copy all other educationItem objects
+          ...prevState.education,
+          {
+            name: "",
+            date: "",
+            major: "",
+            bulletPoint: "",
+          },
+        ],
+      };
+    });
+  }
   return (
     <>
       <Personal onChange={handleChange} />
@@ -166,6 +190,7 @@ function App() {
       <button onClick={handleAddExperience}>Add Experience</button>
       <Section sectionName="EDUCATION" />
       <Education onChange={handleEducationChange} />
+      <button onClick={handleAddEducation}>Add Education</button>
       <Section sectionName="VOLUNTEER & INTERESTS" />
     </>
   );

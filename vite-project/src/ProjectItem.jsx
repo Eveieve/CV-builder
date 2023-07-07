@@ -17,7 +17,7 @@ function ProjectItem({
       />
       <input
         placeholder="Bullet Point"
-        onChange={(e) => onChange(e, id)}
+        onChange={handleChange}
         name="bulletPoint"
         value={projectItem.bulletPoint}
       />
