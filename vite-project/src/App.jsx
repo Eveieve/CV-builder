@@ -36,7 +36,7 @@ function App() {
         bulletPoint: "",
       },
     ],
-    education: [
+    educations: [
       {
         name: "",
         date: "",
@@ -138,16 +138,19 @@ function App() {
     }));
   }
 
-  function handleEducationChange(e) {
+  function handleEducationChange(e, id) {
     const { name, value } = e.target;
     setState((prevState) => {
-      return {
-        ...prevState,
-        education: {
-          ...prevState.education,
-          [name]: value,
-        },
-      };
+      const newEducations = prevState.educations.map((educationItem) => {
+        if (id === educationItem.id) {
+          return {
+            ...educationItem,
+            [name]: value,
+          };
+        }
+        return { educationItem };
+      });
+      return { ...prevState, educations: [...newEducations] };
     });
   }
 
@@ -157,9 +160,9 @@ function App() {
     setState((prevState) => {
       return {
         ...prevState,
-        education: [
+        educations: [
           // copy all other educationItem objects
-          ...prevState.education,
+          ...prevState.educations,
           {
             name: "",
             date: "",
@@ -189,7 +192,10 @@ function App() {
       />
       <button onClick={handleAddExperience}>Add Experience</button>
       <Section sectionName="EDUCATION" />
-      <Education onChange={handleEducationChange} />
+      <Education
+        onChange={handleEducationChange}
+        educations={state.educations}
+      />
       <button onClick={handleAddEducation}>Add Education</button>
       <Section sectionName="VOLUNTEER & INTERESTS" />
     </>

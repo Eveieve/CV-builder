@@ -1,6 +1,6 @@
 // ExperienceItem component for state.experiences array
 
-function ExperienceItem({ onChange, id, experienceItem }) {
+function ExperienceItem({ onChange, experienceItem }) {
   return (
     <>
       <input
