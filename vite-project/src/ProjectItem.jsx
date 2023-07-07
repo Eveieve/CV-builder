@@ -1,8 +1,4 @@
-function ProjectItem({
-  id, // id is passed down from the parent component Projects
-  projectItem,
-  onChange,
-}) {
+function ProjectItem({ id, projectItem, onChange }) {
   function handleChange(e) {
     onChange(e, id);
   }
@@ -26,5 +22,3 @@ function ProjectItem({
 }
 
 export default ProjectItem;
-//    onChange={(e) => onChange(e, id)}
-// Ahhhh defining a new function , which will execute the onChange(e,id) with e and id argument

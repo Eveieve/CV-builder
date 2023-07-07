@@ -1,6 +1,6 @@
 import EducationItem from "./EducationItem";
 // read state.education array from its parent
-function Education({ educations, onChange }) {
+function Educations({ educations, onChange }) {
   const educationItems = educations.map((educationItem) => {
     return (
       <EducationItem
@@ -14,4 +14,4 @@ function Education({ educations, onChange }) {
   return <>{educationItems}</>;
 }
 
-export default Education;
+export default Educations;

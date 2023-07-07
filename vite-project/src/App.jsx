@@ -1,7 +1,7 @@
 import "./App.css";
 import Personal from "./Personal";
 import Experiences from "./Experience";
-import Education from "./Education";
+import Educations from "./Education";
 import { useState } from "react";
 import Section from "./Section.jsx";
 import Projects from "./Projects";
@@ -149,22 +149,20 @@ function App() {
   }
 
   function handleAddEducation() {
-    setState((prevState) => {
-      return {
-        ...prevState,
-        educations: [
-          // copy all other educationItem objects
-          ...prevState.educations,
-          {
-            name: "",
-            date: "",
-            major: "",
-            bulletPoint: "",
-            id: uniqid(),
-          },
-        ],
-      };
-    });
+    setState((prevState) => ({
+      ...prevState,
+      educations: [
+        // copy all other educationItem objects
+        ...prevState.educations,
+        {
+          name: "",
+          date: "",
+          major: "",
+          bulletPoint: "",
+          id: uniqid(),
+        },
+      ],
+    }));
   }
   return (
     <>
@@ -185,7 +183,7 @@ function App() {
       />
       <button onClick={handleAddExperience}>Add Experience</button>
       <Section sectionName="EDUCATION" />
-      <Education
+      <Educations
         onChange={handleEducationChange}
         educations={state.educations}
       />

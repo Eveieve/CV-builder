@@ -2,7 +2,6 @@
 
 function ExperienceItem({ id, onChange, experienceItem }) {
   function handleChange(e) {
-    // id is the id of each experienceItem
     onChange(e, id);
   }
   return (
