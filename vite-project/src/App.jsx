@@ -46,6 +46,7 @@ function App() {
         id: uniqid(),
       },
     ],
+    interests: "",
   });
 
   // handlers
@@ -158,6 +159,15 @@ function App() {
     }));
     console.log(state.educations);
   }
+
+  function handleChangeInterests(e) {
+    const { name, value } = e.target;
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    console.log(state);
+  }
   return (
     <>
       <Personal onChange={handleChange} />
@@ -182,7 +192,13 @@ function App() {
         educations={state.educations}
       />
       <button onClick={handleAddEducation}>Add Education</button>
-      <Section sectionName="VOLUNTEER & INTERESTS" />
+      <Section sectionName="INTERESTS" />
+      <textarea
+        onChange={handleChangeInterests}
+        name="interests"
+        value={state.interests}
+        placeholder="Technical Writing; UX Design; Photography; Baking"
+      />
     </>
   );
 }
