@@ -11,7 +11,6 @@ function Projects({ projects, onChange }) {
       />
     );
   });
-  console.log(projectItems);
   return <>{projectItems}</>;
 }
 

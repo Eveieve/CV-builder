@@ -4,6 +4,7 @@ function ExperienceItem({ id, onChange, experienceItem }) {
   function handleChange(e) {
     onChange(e, id);
   }
+
   return (
     <>
       <input

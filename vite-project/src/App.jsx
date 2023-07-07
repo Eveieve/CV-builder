@@ -1,10 +1,11 @@
 import "./App.css";
 import Personal from "./Personal";
+import Projects from "./Projects";
 import Experiences from "./Experience";
 import Educations from "./Education";
 import { useState } from "react";
 import Section from "./Section.jsx";
-import Projects from "./Projects";
+
 import uniqid from "uniqid";
 
 function App() {
@@ -29,7 +30,6 @@ function App() {
 
     experiences: [
       {
-        // initial experienceItem(object)
         company: "",
         title: "",
         date: "",
@@ -47,9 +47,8 @@ function App() {
       },
     ],
   });
-  console.log(state);
-  // function to handle change to the input and update the state accordingly
-  // [e.target.name] - setting the key , computed key
+
+  // handlers
   function handleChange(e) {
     setState((prevState) => {
       return {
@@ -70,10 +69,9 @@ function App() {
       },
     }));
   }
-  // handler to be passed down to ProjectItem.js(Component that holds input fields )
+
   function handleProjectsChange(e, id) {
-    const { name, value } = e.target; // name of the target element
-    console.log(id);
+    const { name, value } = e.target;
 
     setState((prevState) => {
       const newProjects = prevState.projects.map((projectItem) => {
@@ -105,10 +103,7 @@ function App() {
     setState((prevState) => {
       const newExperiences = prevState.experiences.map((experienceItem) => {
         if (id === experienceItem.id) {
-          return {
-            ...experienceItem,
-            [name]: value,
-          };
+          return { ...experienceItem, [name]: value };
         }
         return experienceItem;
       });
@@ -130,6 +125,7 @@ function App() {
         },
       ],
     }));
+    console.log(state.experiences);
   }
 
   function handleEducationChange(e, id) {
@@ -137,12 +133,9 @@ function App() {
     setState((prevState) => {
       const newEducations = prevState.educations.map((educationItem) => {
         if (id === educationItem.id) {
-          return {
-            ...educationItem,
-            [name]: value,
-          };
+          return { ...educationItem, [name]: value };
         }
-        return { educationItem };
+        return educationItem;
       });
       return { ...prevState, educations: [...newEducations] };
     });
@@ -163,6 +156,7 @@ function App() {
         },
       ],
     }));
+    console.log(state.educations);
   }
   return (
     <>
