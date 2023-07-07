@@ -34,6 +34,7 @@ function App() {
         title: "",
         date: "",
         bulletPoint: "",
+        id: uniqid(),
       },
     ],
     educations: [
@@ -42,6 +43,7 @@ function App() {
         date: "",
         major: "",
         bulletPoint: "",
+        id: uniqid(),
       },
     ],
   });
@@ -76,14 +78,10 @@ function App() {
     setState((prevState) => {
       const newProjects = prevState.projects.map((projectItem) => {
         if (projectItem.id === id) {
-          // copy all other keys in projectItem entity
-          console.log(projectItem);
-          // return a new projectItem entity with the updated key:value
           return { ...projectItem, [name]: value };
         }
         return projectItem;
       });
-      // computed [...newProjects] based on conditional statements above
       return { ...prevState, projects: [...newProjects] };
     });
   }
@@ -105,25 +103,20 @@ function App() {
   function handleExperienceChange(e, id) {
     const { name, value } = e.target;
     setState((prevState) => {
-      // map a newExperiences array
-      // if the argument id is the same as the one in experienceItem.id
       const newExperiences = prevState.experiences.map((experienceItem) => {
         if (id === experienceItem.id) {
           return {
-            // copy all other keys in expereinceItem object
             ...experienceItem,
             [name]: value,
           };
         }
-        return { experienceItem };
+        return experienceItem;
       });
       return { ...prevState, experiences: [...newExperiences] };
     });
   }
 
-  function handleAddExperience(e) {
-    //setState to update the state
-    const { name, value } = e.target;
+  function handleAddExperience() {
     setState((prevState) => ({
       ...prevState,
       experiences: [
@@ -133,6 +126,7 @@ function App() {
           title: "",
           date: "",
           bulletPoint: "",
+          id: uniqid(),
         },
       ],
     }));
@@ -154,9 +148,7 @@ function App() {
     });
   }
 
-  function handleAddEducation(e) {
-    const { name, value } = e.target;
-
+  function handleAddEducation() {
     setState((prevState) => {
       return {
         ...prevState,
@@ -168,6 +160,7 @@ function App() {
             date: "",
             major: "",
             bulletPoint: "",
+            id: uniqid(),
           },
         ],
       };

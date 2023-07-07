@@ -1,19 +1,18 @@
 import ProjectItem from "./ProjectItem";
 
 function Projects({ projects, onChange }) {
-  const projectEntity = projects.map((projectItem) => {
-    // each ProjectItem(list) must have a key
+  const projectItems = projects.map((projectItem) => {
     return (
       <ProjectItem
         key={projectItem.id}
         onChange={onChange}
         projectItem={projectItem}
-        id={projectItem.id} // projectItem is the entity in the array at this particular time
+        id={projectItem.id}
       />
     );
   });
-  // projectEntity is a set of input fields for Projects section
-  return <>{projectEntity}</>;
+  console.log(projectItems);
+  return <>{projectItems}</>;
 }
 
 export default Projects;
