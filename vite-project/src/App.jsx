@@ -135,7 +135,7 @@ function App() {
         if (id === educationItem.id) {
           return { ...educationItem, [name]: value };
         }
-        return educationItem;
+        return { educationItem };
       });
       return { ...prevState, educations: [...newEducations] };
     });
