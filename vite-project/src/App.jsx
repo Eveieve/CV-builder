@@ -1,6 +1,6 @@
 import "./App.css";
 import Personal from "./Personal";
-import Experience from "./Experience";
+import Experiences from "./Experience";
 import Education from "./Education";
 import { useState } from "react";
 import Section from "./Section.jsx";
@@ -27,9 +27,15 @@ function App() {
       },
     ],
 
-    experience: {
-      bulletPoint: "",
-    },
+    experiences: [
+      {
+        // initial experienceItem(object)
+        company: "",
+        title: "",
+        date: "",
+        bulletPoint: "",
+      },
+    ],
     education: {
       bulletPoint: "",
     },
@@ -57,10 +63,11 @@ function App() {
       },
     }));
   }
-
+  // handler to be passed down to ProjectItem.js(Component that holds input fields )
   function handleProjectsChange(e, id) {
-    const { name, value } = e.target;
+    const { name, value } = e.target; // name of the target element
     console.log(id);
+
     setState((prevState) => {
       const newProjects = prevState.projects.map((projectItem) => {
         if (projectItem.id === id) {
@@ -71,6 +78,7 @@ function App() {
         }
         return projectItem;
       });
+      // computed [...newProjects] based on conditional statements above
       return { ...prevState, projects: [...newProjects] };
     });
   }
@@ -89,16 +97,22 @@ function App() {
     }));
   }
 
-  function handleExperienceChange(e) {
+  function handleExperienceChange(e, id) {
     const { name, value } = e.target;
     setState((prevState) => {
-      return {
-        ...prevState,
-        experience: {
-          ...prevState.experience,
-          [name]: value,
-        },
-      };
+      // map a newExperiences array
+      // if the argument id is the same as the one in experienceItem.id
+      const newExperiences = prevState.experiences.map((experienceItem) => {
+        if (id === experienceItem.id) {
+          return {
+            // copy all other keys in expereinceItem object
+            ...experienceItem,
+            [name]: value,
+          };
+          return { experienceItem };
+        }
+      });
+      return { ...prevState, experiences: [...newExperiences] };
     });
   }
 
@@ -125,14 +139,13 @@ function App() {
         value={state.techSkills.skills}
       />
       <Section sectionName="PROJECTS" />
-      <Projects
-        state={state.projects}
-        onChange={handleProjectsChange}
-        projects={state.projects}
-      />
+      <Projects onChange={handleProjectsChange} projects={state.projects} />
       <button onClick={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
-      <Experience onChange={handleExperienceChange} />
+      <Experiences
+        onChange={handleExperienceChange}
+        experiences={state.experiences}
+      />
       <Section sectionName="EDUCATION" />
       <Education onChange={handleEducationChange} />
       <Section sectionName="VOLUNTEER & INTERESTS" />

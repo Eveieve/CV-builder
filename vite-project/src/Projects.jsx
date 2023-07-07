@@ -1,5 +1,4 @@
 import ProjectItem from "./ProjectItem";
-// import  ProjectItem as a component!
 
 function Projects({ projects, onChange }) {
   const projectEntity = projects.map((projectItem) => {
@@ -13,7 +12,7 @@ function Projects({ projects, onChange }) {
       />
     );
   });
-  // projectEntity is a set of input fields for Proejcts section
+  // projectEntity is a set of input fields for Projects section
   return <>{projectEntity}</>;
 }
 

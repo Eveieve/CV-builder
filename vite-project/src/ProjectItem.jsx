@@ -3,11 +3,15 @@ function ProjectItem({
   projectItem,
   onChange,
 }) {
+  function handleChange(e) {
+    onChange(e, id);
+  }
+
   return (
     <>
       <input
         placeholder="Project Title"
-        onChange={(e) => onChange(e, id)}
+        onChange={handleChange}
         name="title"
         value={projectItem.title}
       />
@@ -22,3 +26,5 @@ function ProjectItem({
 }
 
 export default ProjectItem;
+//    onChange={(e) => onChange(e, id)}
+// Ahhhh defining a new function , which will execute the onChange(e,id) with e and id argument
