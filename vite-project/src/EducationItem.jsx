@@ -28,12 +28,12 @@ function EducationItem({ id, educationItem, onChange }) {
       />
       <br />
       <BulletPoints bulletPointObj={educationItem.bulletPoint} />
-      {/* <input
+      <input
         placeholder="Bullet Point"
         onChange={handleChange}
         name="bulletPoint"
         value={educationItem.bulletPoint}
-      /> */}
+      />
     </>
   );
 }

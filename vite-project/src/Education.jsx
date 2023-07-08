@@ -1,9 +1,10 @@
 import EducationItem from "./EducationItem";
-import BulletPoints from "./BulletPoints";
+// import BulletPoints from "./BulletPoints";
 
 // read state.education array from its parent
 function Educations({ setState, educations, onChange, state }) {
-  const educationItems = educations.map((educationItem) => {
+  console.log(educations);
+  const educationItems = educations?.map((educationItem) => {
     return (
       <>
         <EducationItem
@@ -12,13 +13,13 @@ function Educations({ setState, educations, onChange, state }) {
           onChange={onChange}
           id={educationItem.id}
         />
-        <BulletPoints
+        {/* <BulletPoints
           bulletPoints={educationItem.bulletPoints}
           id={educationItem.id}
           onChange={onChange}
           state={state}
           setState={setState}
-        />
+        /> */}
       </>
     );
   });

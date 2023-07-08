@@ -10,10 +10,17 @@ function BulletPointItem({ setState, state, bulletPointItem, id, onChange }) {
   console.log(setState);
   // const [state, setState] = useState(state);
 
-  // can you read a setState function from its parent?
-  function handleChange(e) {
-    onChange(e, id);
-    console.log(bulletPointItem);
+  function updateStateOnChange(e) {
+    const { name, value } = e.target;
+
+    setState((prevState) => ({
+      ...prevState,
+      educations: {
+        ...prevState.educations,
+        ...prevState.educations.bulletPoints,
+        [name]: value,
+      },
+    }));
   }
   return (
     <>
@@ -21,7 +28,7 @@ function BulletPointItem({ setState, state, bulletPointItem, id, onChange }) {
         placeholder="bullet point"
         name="title"
         value={bulletPointItem.title} // there's a 'title' key in bulletPointItem object
-        onChange={handleChange}
+        onChange={updateStateOnChange}
       />
     </>
   );
