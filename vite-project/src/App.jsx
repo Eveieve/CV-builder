@@ -23,7 +23,7 @@ function App() {
     projects: [
       {
         title: "",
-        bulletPoints: [],
+        bulletPoints: "",
         id: uniqid(),
       },
     ],
@@ -33,7 +33,7 @@ function App() {
         company: "",
         title: "",
         date: "",
-        bulletPoints: [],
+        bulletPoints: "",
         id: uniqid(),
       },
     ],
@@ -42,12 +42,7 @@ function App() {
         name: "",
         date: "",
         major: "",
-        bulletPoints: [
-          {
-            bulletPoint: "",
-            id: uniqid(),
-          },
-        ],
+        bulletPoints: "",
         id: uniqid(),
       },
     ],

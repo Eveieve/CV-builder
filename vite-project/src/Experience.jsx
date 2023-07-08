@@ -11,7 +11,12 @@ function Experiences({ experiences, onChange }) {
       />
     );
   });
-  return <>{experienceItems}</>;
+  return (
+    <>
+      {experienceItems}
+      <button>delete</button>
+    </>
+  );
 }
 
 export default Experiences;
