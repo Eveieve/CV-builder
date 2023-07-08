@@ -189,41 +189,44 @@ function App() {
     });
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
   return (
     <>
-      <Personal onChange={handleChange} />
-      <Section sectionName="TECHNICAL SKILLS" />
-      <textarea
-        onChange={handleTechSkillsChange}
-        name="skills"
-        value={state.techSkills.skills}
-      />
-      <Section sectionName="PROJECTS" />
-      <Projects onChange={handleProjectsChange} projects={state.projects} />
+      <form onSubmit={handleSubmit}>
+        <Personal onChange={handleChange} />
+        <Section sectionName="TECHNICAL SKILLS" />
+        <textarea
+          onChange={handleTechSkillsChange}
+          name="skills"
+          value={state.techSkills.skills}
+        />
+        <Section sectionName="PROJECTS" />
+        <Projects onChange={handleProjectsChange} projects={state.projects} />
 
-      <button onClick={handleAddProject}>Add project</button>
-      <Section sectionName="EXPERIENCE" />
-      <Experiences
-        onChange={handleExperienceChange}
-        experiences={state.experiences}
-        onDelete={handleDeleteExperience}
-      />
-      <button onClick={handleAddExperience}>Add Experience</button>
-      <Section sectionName="EDUCATION" />
-      <Educations
-        onChange={handleEducationChange}
-        educations={state.educations}
-        state={state}
-        setState={setState}
-      />
-      <button onClick={handleAddEducation}>Add Education</button>
-      <Section sectionName="INTERESTS" />
-      <textarea
-        onChange={handleChangeInterests}
-        name="interests"
-        value={state.interests}
-        placeholder="Technical Writing; UX Design; Photography; Baking"
-      />
+        <button onClick={handleAddProject}>Add project</button>
+        <Section sectionName="EXPERIENCE" />
+        <Experiences
+          onChange={handleExperienceChange}
+          experiences={state.experiences}
+          onDelete={handleDeleteExperience}
+        />
+        <button onClick={handleAddExperience}>Add Experience</button>
+        <Section sectionName="EDUCATION" />
+        <Educations
+          onChange={handleEducationChange}
+          educations={state.educations}
+        />
+        <button onClick={handleAddEducation}>Add Education</button>
+        <Section sectionName="INTERESTS" />
+        <textarea
+          onChange={handleChangeInterests}
+          name="interests"
+          value={state.interests}
+          placeholder="Technical Writing; UX Design; Photography; Baking"
+        />
+      </form>
     </>
   );
 }
