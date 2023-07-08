@@ -1,10 +1,13 @@
 // ExperienceItem component for state.experiences array
 
-function ExperienceItem({ id, onChange, experienceItem }) {
+function ExperienceItem({ id, onChange, onDelete, experienceItem }) {
   function handleChange(e) {
     onChange(e, id);
   }
 
+  function handleDelete(e) {
+    onDelete(e, id);
+  }
   return (
     <>
       <input
@@ -34,6 +37,7 @@ function ExperienceItem({ id, onChange, experienceItem }) {
         name="bulletPoint"
         value={experienceItem.bulletPoint}
       />
+      <button onClick={handleDelete}>delete</button>
     </>
   );
 }

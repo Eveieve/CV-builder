@@ -162,7 +162,7 @@ function App() {
     console.log(state.educations);
   }
 
-  function handleChangeInterests(e) {
+  function handleChangeInterests(e, id) {
     const { name, value } = e.target;
     setState((prevState) => ({
       ...prevState,
@@ -171,20 +171,21 @@ function App() {
     console.log(state);
   }
 
-  function addBullet(e, id) {
-    //adds a bullet to the object (updates state)
-    // each bullet has a unique id
-  }
+  // function to handle deletion of experienceItem
+  // when e(event) happens..
 
-  // this should be inside Education object  component?
-  function handleChangeBullet(e, id) {
-    // onChange, call setState to update the state object
-    // e gives you the target element
-
-    // unpack 'name' and 'value' prop of the target element
+  // use this function to loop through the array and filter (make a new array) with only those with an unmatched id
+  // new array is filled with objects that don't match the id
+  function handleDeleteExperience(e, id) {
     const { name, value } = e.target;
 
-    setState((prevState) => ({}));
+    setState((prevState) => {
+      const newExperiences = prevState.experiences.filter(
+        (experienceItem) => id !== experienceItem.id
+      );
+
+      return { ...prevState, experiences: [...newExperiences] };
+    });
   }
 
   return (
@@ -204,6 +205,7 @@ function App() {
       <Experiences
         onChange={handleExperienceChange}
         experiences={state.experiences}
+        onDelete={handleDeleteExperience}
       />
       <button onClick={handleAddExperience}>Add Experience</button>
       <Section sectionName="EDUCATION" />
