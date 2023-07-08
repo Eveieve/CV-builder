@@ -18,7 +18,7 @@ function ProjectItem({ id, projectItem, onChange }) {
       <input
         placeholder="Bullet Point"
         onChange={handleChange}
-        name="bulletPoint"
+        name="bulletPoints"
         value={projectItem.bulletPoint}
       />
     </>

@@ -3,7 +3,6 @@ import EducationItem from "./EducationItem";
 
 // read state.education array from its parent
 function Educations({ setState, educations, onChange, state }) {
-  console.log(educations);
   const educationItems = educations?.map((educationItem) => {
     return (
       <>

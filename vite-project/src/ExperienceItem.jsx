@@ -23,18 +23,17 @@ function ExperienceItem({ id, onChange, onDelete, experienceItem }) {
         name="date"
         value={experienceItem.date}
       />
-      <br />
+
       <input
         placeholder="Title"
         onChange={handleChange}
         name="title"
         value={experienceItem.title}
       />
-      <br />▪{" "}
-      <input
-        placeholder="Bullet Point"
+      <textarea
+        placeholder="This will be reformatted to bullet points on save"
         onChange={handleChange}
-        name="bulletPoint"
+        name="bulletPoints"
         value={experienceItem.bulletPoint}
       />
       <button onClick={handleDelete}>delete</button>

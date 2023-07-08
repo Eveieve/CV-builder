@@ -31,7 +31,7 @@ function EducationItem({ id, educationItem, onChange }) {
       <input
         placeholder="Bullet Point"
         onChange={handleChange}
-        name="bulletPoint"
+        name="bulletPoints"
         value={educationItem.bulletPoint}
       />
     </>

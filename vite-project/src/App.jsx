@@ -93,7 +93,7 @@ function App() {
         ...prevState.projects,
         {
           title: "",
-          bulletPoint: "",
+          bulletPoints: "",
           id: uniqid(),
         },
       ],
@@ -111,6 +111,7 @@ function App() {
       });
       return { ...prevState, experiences: [...newExperiences] };
     });
+    console.log(state);
   }
 
   function handleAddExperience() {
@@ -122,7 +123,7 @@ function App() {
           company: "",
           title: "",
           date: "",
-          bulletPoint: "",
+          bulletPoints: "",
           id: uniqid(),
         },
       ],
@@ -154,7 +155,7 @@ function App() {
           name: "",
           date: "",
           major: "",
-          bulletPoint: "",
+          bulletPoints: "",
           id: uniqid(),
         },
       ],
