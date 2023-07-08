@@ -1,9 +1,6 @@
 import ExperienceItem from "./ExperienceItem";
 
-function Experiences({ id, onDelete, experiences, onChange }) {
-  // function handleDelete(e) {
-  //   onDelete(e, id);
-  // }
+function Experiences({ onDelete, experiences, onChange }) {
   const experienceItems = experiences.map((experienceItem) => {
     return (
       <ExperienceItem
