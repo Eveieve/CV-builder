@@ -2,7 +2,7 @@ import EducationItem from "./EducationItem";
 import BulletPoints from "./BulletPoints";
 
 // read state.education array from its parent
-function Educations({ educations, onChange }) {
+function Educations({ setState, educations, onChange, state }) {
   const educationItems = educations.map((educationItem) => {
     return (
       <>
@@ -16,6 +16,8 @@ function Educations({ educations, onChange }) {
           bulletPoints={educationItem.bulletPoints}
           id={educationItem.id}
           onChange={onChange}
+          state={state}
+          setState={setState}
         />
       </>
     );

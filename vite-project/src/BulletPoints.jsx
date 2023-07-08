@@ -10,9 +10,10 @@ import BulletPointItem from "./BulletPointItem";
 // i can get educationItem's id
 
 // each bulletPointItem has an id. Use this for the key
-function BulletPoints({ bulletPoints, onChange }) {
+function BulletPoints({ setState, bulletPoints, onChange, state }) {
   // comes with a button
   // console.log(bulletPoints);
+
   const bulletPointItems = bulletPoints?.map((bulletPointItem) => {
     return (
       <BulletPointItem
@@ -20,6 +21,8 @@ function BulletPoints({ bulletPoints, onChange }) {
         bulletPointItem={bulletPointItem} // reads the bulletPointItem object
         id={bulletPointItem.id}
         onChange={onChange}
+        state={state}
+        setState={setState}
       />
     );
   });

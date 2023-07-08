@@ -181,6 +181,17 @@ function App() {
     // each bullet has a unique id
   }
 
+  // this should be inside Education object  component?
+  function handleChangeBullet(e, id) {
+    // onChange, call setState to update the state object
+    // e gives you the target element
+
+    // unpack 'name' and 'value' prop of the target element
+    const { name, value } = e.target;
+
+    setState((prevState) => ({}));
+  }
+
   return (
     <>
       <Personal onChange={handleChange} />
@@ -204,6 +215,8 @@ function App() {
       <Educations
         onChange={handleEducationChange}
         educations={state.educations}
+        state={state}
+        setState={setState}
       />
       <button onClick={handleAddEducation}>Add Education</button>
       <Section sectionName="INTERESTS" />
