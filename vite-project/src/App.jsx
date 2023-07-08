@@ -186,7 +186,7 @@ function App() {
       />
       <Section sectionName="PROJECTS" />
       <Projects onChange={handleProjectsChange} projects={state.projects} />
-      <button>Add description</button>
+
       <button onClick={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
       <Experiences

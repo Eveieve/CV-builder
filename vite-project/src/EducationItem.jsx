@@ -1,3 +1,5 @@
+import BulletPoints from "./BulletPoints";
+
 function EducationItem({ id, educationItem, onChange }) {
   function handleChange(e) {
     onChange(e, id);
@@ -25,12 +27,13 @@ function EducationItem({ id, educationItem, onChange }) {
         value={educationItem.major}
       />
       <br />
-      <input
+      <BulletPoints bulletPointObj={educationItem.bulletPoint} />
+      {/* <input
         placeholder="Bullet Point"
         onChange={handleChange}
         name="bulletPoint"
         value={educationItem.bulletPoint}
-      />
+      /> */}
     </>
   );
 }
