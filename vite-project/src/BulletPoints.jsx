@@ -12,7 +12,8 @@ import BulletPointItem from "./BulletPointItem";
 // each bulletPointItem has an id. Use this for the key
 function BulletPoints({ bulletPoints, bulletPointObj, onChange }) {
   // comes with a button
-  const bulletPointItems = bulletPoints.map((bulletPointItem) => {
+  console.log(bulletPoints);
+  const bulletPointItems = bulletPoints?.map((bulletPointItem) => {
     return (
       <BulletPointItem
         key={bulletPointItem.id}
@@ -21,17 +22,7 @@ function BulletPoints({ bulletPoints, bulletPointObj, onChange }) {
     );
   });
   function handleAddBullet(e, id) {}
-  return (
-    <>
-      <input
-        placeholder="Bullet Point"
-        onChange={onChange}
-        name="bulletPoint"
-        // value={educationItem.bulletPoint}
-      />
-      <button onClick={handleAddBullet}>Add description</button>
-    </>
-  );
+  return <>{bulletPointItems}</>;
 }
 
 export default BulletPoints;
