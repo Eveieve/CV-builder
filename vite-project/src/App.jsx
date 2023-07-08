@@ -23,7 +23,7 @@ function App() {
     projects: [
       {
         title: "",
-        bulletPoint: "",
+        bulletPoint: [],
         id: uniqid(),
       },
     ],
@@ -33,7 +33,7 @@ function App() {
         company: "",
         title: "",
         date: "",
-        bulletPoint: "",
+        bulletPoint: [],
         id: uniqid(),
       },
     ],
@@ -42,7 +42,7 @@ function App() {
         name: "",
         date: "",
         major: "",
-        bulletPoint: "",
+        bulletPoint: [],
         id: uniqid(),
       },
     ],
@@ -83,6 +83,7 @@ function App() {
       });
       return { ...prevState, projects: [...newProjects] };
     });
+    console.log(state);
   }
 
   function handleAddProject() {
@@ -168,6 +169,12 @@ function App() {
     }));
     console.log(state);
   }
+
+  function addBullet(e, id) {
+    //adds a bullet to the object (updates state)
+    // each bullet has a unique id
+  }
+
   return (
     <>
       <Personal onChange={handleChange} />
@@ -179,6 +186,7 @@ function App() {
       />
       <Section sectionName="PROJECTS" />
       <Projects onChange={handleProjectsChange} projects={state.projects} />
+      <button>Add description</button>
       <button onClick={handleAddProject}>Add project</button>
       <Section sectionName="EXPERIENCE" />
       <Experiences
