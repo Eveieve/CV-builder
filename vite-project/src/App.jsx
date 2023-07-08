@@ -45,7 +45,7 @@ function App() {
         bulletPoints: [
           {
             bulletPoint: "",
-            id: "",
+            id: uniqid(),
           },
         ],
         id: uniqid(),
@@ -144,6 +144,7 @@ function App() {
         }
         return educationItem;
       });
+
       return { ...prevState, educations: [...newEducations] };
     });
   }

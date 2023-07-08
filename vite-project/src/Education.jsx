@@ -12,7 +12,11 @@ function Educations({ educations, onChange }) {
           onChange={onChange}
           id={educationItem.id}
         />
-        <BulletPoints bulletPoints={educationItem.bulletPoints} />
+        <BulletPoints
+          bulletPoints={educationItem.bulletPoints}
+          id={educationItem.id}
+          onChange={onChange}
+        />
       </>
     );
   });
