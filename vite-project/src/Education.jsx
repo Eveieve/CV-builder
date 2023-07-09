@@ -1,7 +1,7 @@
 import EducationItem from "./EducationItem";
 
 // read state.education array from its parent
-function Educations({ educations, onChange }) {
+function Educations({ onDelete, educations, onChange }) {
   const educationItems = educations?.map((educationItem) => {
     return (
       <>
@@ -10,6 +10,7 @@ function Educations({ educations, onChange }) {
           educationItem={educationItem}
           onChange={onChange}
           id={educationItem.id}
+          onDelete={onDelete}
         />
       </>
     );

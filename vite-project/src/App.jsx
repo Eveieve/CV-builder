@@ -169,10 +169,20 @@ function App() {
   // Think of it like this - the id of the each element in the array will be known to you.
   // You just need to check to see if that id of the item(object) is equal to the one you read in your component
   // the id of the item(object) will be passed down from
-  function handleDeleteEducation() {
-    // setState to set a updated state
+  function handleDeleteEducation(e, id) {
+    console.log(e);
+    // setState to set an updated state
     // filter educations array and recreate an array with items that don't match the id
+    setState((prevState) => {
+      // opening block
+      const newEducations = prevState.educations.filter(
+        (educationItem) => id !== educationItem.id
+      );
+
+      return { ...prevState, educations: [...newEducations] };
+    });
   }
+
   function handleChangeInterests(e, id) {
     const { name, value } = e.target;
     setState((prevState) => ({
@@ -188,8 +198,6 @@ function App() {
   // use this function to loop through the array and filter (make a new array) with only those with an unmatched id
   // new array is filled with objects that don't match the id
   function handleDeleteExperience(e, id) {
-    const { name, value } = e.target;
-
     setState((prevState) => {
       const newExperiences = prevState.experiences.filter(
         (experienceItem) => id !== experienceItem.id
@@ -227,6 +235,7 @@ function App() {
         <Educations
           onChange={handleEducationChange}
           educations={state.educations}
+          onDelete={handleDeleteEducation}
         />
         <button onClick={handleAddEducation}>Add Education</button>
         <Section sectionName="INTERESTS" />
