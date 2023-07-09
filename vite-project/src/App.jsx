@@ -160,9 +160,19 @@ function App() {
         },
       ],
     }));
-    console.log(state.educations);
+    console.log(state);
   }
+  // The deletion should be happening in Education Section - I need to delete on EducationItem on click of delete button.
+  // You'll be able to call handleDeleteEducation() from EducationItem.js bc when you map the Educations array, you will return an element with a unique key for each.
+  // And you can pass down id of each item to each EducationItem component - you can read the id  in EducationItem() component
 
+  // Think of it like this - the id of the each element in the array will be known to you.
+  // You just need to check to see if that id of the item(object) is equal to the one you read in your component
+  // the id of the item(object) will be passed down from
+  function handleDeleteEducation() {
+    // setState to set a updated state
+    // filter educations array and recreate an array with items that don't match the id
+  }
   function handleChangeInterests(e, id) {
     const { name, value } = e.target;
     setState((prevState) => ({
@@ -226,6 +236,8 @@ function App() {
           value={state.interests}
           placeholder="Technical Writing; UX Design; Photography; Baking"
         />
+        <button type="submit">Save CV</button>
+        <button type="button">Edit CV</button>
       </form>
     </>
   );
