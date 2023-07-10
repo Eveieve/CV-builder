@@ -223,6 +223,18 @@ function App() {
     console.log(state);
   }
 
+  function handleSaveCV(e) {
+    // onClick, this function fires
+    // add className 'hidden' to button elements when clicked
+    let buttons = document.getElementsByTagName("button");
+    console.log(buttons);
+    console.log(buttons[0]);
+    // buttons is a a HTML collection
+    let btnsArr = [...buttons];
+    console.log(btnsArr);
+    //buttons.className = "hidden";
+    btnsArr.map((btn) => (btn.className = "hidden"));
+  }
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -262,7 +274,9 @@ function App() {
           value={state.interests}
           placeholder="Technical Writing; UX Design; Photography; Baking"
         />
-        <button type="submit">Save CV</button>
+        <button type="submit" onClick={handleSaveCV}>
+          Save CV
+        </button>
         <button type="button">Edit CV</button>
       </form>
     </>
