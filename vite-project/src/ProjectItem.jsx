@@ -1,4 +1,4 @@
-function ProjectItem({ id, projectItem, onChange }) {
+function ProjectItem({ id, projectItem, onChange, onDelete }) {
   function handleChange(e) {
     onChange(e, id); //calls onChange handler with the id it reads.
     // id is what it receives from its parent
@@ -6,7 +6,9 @@ function ProjectItem({ id, projectItem, onChange }) {
 
     // onChange of the projectItem input fields,
   }
-
+  function handleDelete(e) {
+    onDelete(e, id);
+  }
   return (
     <>
       <input
@@ -21,6 +23,7 @@ function ProjectItem({ id, projectItem, onChange }) {
         name="bulletPoints"
         value={projectItem.bulletPoint}
       />
+      <button onClick={handleDelete}>delete</button>
     </>
   );
 }

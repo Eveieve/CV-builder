@@ -100,6 +100,18 @@ function App() {
     }));
   }
 
+  // which to delete? need to specify id
+
+  function handleDeleteProject(e, id) {
+    setState((prevState) => {
+      // newProjects array that is filtered out
+      const newProjects = prevState.projects.filter(
+        (projectItem) => id !== projectItem.id
+      );
+      return { ...prevState, projects: [...newProjects] };
+    });
+  }
+
   function handleExperienceChange(e, id) {
     const { name, value } = e.target;
     setState((prevState) => {
@@ -129,6 +141,25 @@ function App() {
       ],
     }));
     console.log(state.experiences);
+  }
+
+  // function to handle deletion of experienceItem
+  // when e(event) happens..
+
+  // use this function to loop through the array and filter (make a new array) with only those with an unmatched id
+  // new array is filled with objects that don't match the id
+  function handleDeleteExperience(e, id) {
+    setState((prevState) => {
+      const newExperiences = prevState.experiences.filter(
+        (experienceItem) => id !== experienceItem.id
+      );
+
+      return { ...prevState, experiences: [...newExperiences] };
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
   }
 
   function handleEducationChange(e, id) {
@@ -192,24 +223,6 @@ function App() {
     console.log(state);
   }
 
-  // function to handle deletion of experienceItem
-  // when e(event) happens..
-
-  // use this function to loop through the array and filter (make a new array) with only those with an unmatched id
-  // new array is filled with objects that don't match the id
-  function handleDeleteExperience(e, id) {
-    setState((prevState) => {
-      const newExperiences = prevState.experiences.filter(
-        (experienceItem) => id !== experienceItem.id
-      );
-
-      return { ...prevState, experiences: [...newExperiences] };
-    });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -221,7 +234,11 @@ function App() {
           value={state.techSkills.skills}
         />
         <Section sectionName="PROJECTS" />
-        <Projects onChange={handleProjectsChange} projects={state.projects} />
+        <Projects
+          onChange={handleProjectsChange}
+          projects={state.projects}
+          onDelete={handleDeleteProject}
+        />
 
         <button onClick={handleAddProject}>Add project</button>
         <Section sectionName="EXPERIENCE" />

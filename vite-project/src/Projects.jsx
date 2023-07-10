@@ -1,6 +1,6 @@
 import ProjectItem from "./ProjectItem";
 
-function Projects({ projects, onChange }) {
+function Projects({ projects, onChange, onDelete }) {
   const projectItems = projects.map((projectItem) => {
     return (
       <ProjectItem
@@ -8,6 +8,7 @@ function Projects({ projects, onChange }) {
         onChange={onChange}
         projectItem={projectItem}
         id={projectItem.id}
+        onDelete={onDelete}
       />
     );
   });
