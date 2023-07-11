@@ -225,19 +225,22 @@ function App() {
 
   // changes the text to 'Edit CV' at the end
   function toggleSaveCV(e) {
-    e.target.classList.toggle("editing");
-    if (e.target.className === "editing") {
+    // buttons except for SaveCV button
+    let buttons = document.querySelectorAll("button:not(.saveCV)");
+    console.log(buttons);
+    let btnsArray = Array.from(buttons);
+
+    if (e.target.classList.contains("editing")) {
+      btnsArray.map((btn) => (btn.className = "hidden"));
+      e.target.textContent = "Edit CV";
+      e.target.classList.toggle("editing");
+    } else {
+      btnsArray.map((btn) => (btn.className = "not-hidden"));
       e.target.textContent = "Save CV";
-      // let buttons = document.getElementsByTagName("button");
-      // let btnsArr = [...buttons];
-      // btnsArr.map((btn) => (btn.className = "hidden"));
-    } else e.target.textContent = "Edit CV";
+      e.target.classList.toggle("editing");
+    }
   }
 
-  // function handleEditCV(e) {
-
-  //   e.target.textContent = "Save CV"
-  // }
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -277,7 +280,7 @@ function App() {
           value={state.interests}
           placeholder="Technical Writing; UX Design; Photography; Baking"
         />
-        <button type="submit" className="editing" onClick={toggleSaveCV}>
+        <button type="submit" className="saveCV editing" onClick={toggleSaveCV}>
           Save CV
         </button>
       </form>

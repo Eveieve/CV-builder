@@ -70,11 +70,7 @@ button:focus-visible {
 
 /*MY CSS*/
 
-button.hidden {
+.hidden {
   display:none;
 }
 
-
-.editing {
-  display: flex;
-}
