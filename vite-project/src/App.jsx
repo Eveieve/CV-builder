@@ -230,14 +230,19 @@ function App() {
     console.log(buttons);
     let btnsArray = Array.from(buttons);
 
+    let inputs = document.querySelectorAll("input, textarea");
+    console.log(inputs);
+    let inputsArray = [...inputs];
     if (e.target.classList.contains("editing")) {
       btnsArray.map((btn) => (btn.className = "hidden"));
       e.target.textContent = "Edit CV";
       e.target.classList.toggle("editing");
+      inputsArray.map((input) => input.setAttribute("readonly", "readonly"));
     } else {
       btnsArray.map((btn) => (btn.className = "not-hidden"));
       e.target.textContent = "Save CV";
       e.target.classList.toggle("editing");
+      inputsArray.map((input) => input.removeAttribute("readonly"));
     }
   }
 
