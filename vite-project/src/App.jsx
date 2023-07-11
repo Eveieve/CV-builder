@@ -223,18 +223,21 @@ function App() {
     console.log(state);
   }
 
-  function handleSaveCV(e) {
-    // onClick, this function fires
-    // add className 'hidden' to button elements when clicked
-    let buttons = document.getElementsByTagName("button");
-    console.log(buttons);
-    console.log(buttons[0]);
-    // buttons is a a HTML collection
-    let btnsArr = [...buttons];
-    console.log(btnsArr);
-    //buttons.className = "hidden";
-    btnsArr.map((btn) => (btn.className = "hidden"));
+  // changes the text to 'Edit CV' at the end
+  function toggleSaveCV(e) {
+    e.target.classList.toggle("editing");
+    if (e.target.className === "editing") {
+      e.target.textContent = "Save CV";
+      // let buttons = document.getElementsByTagName("button");
+      // let btnsArr = [...buttons];
+      // btnsArr.map((btn) => (btn.className = "hidden"));
+    } else e.target.textContent = "Edit CV";
   }
+
+  // function handleEditCV(e) {
+
+  //   e.target.textContent = "Save CV"
+  // }
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -274,10 +277,9 @@ function App() {
           value={state.interests}
           placeholder="Technical Writing; UX Design; Photography; Baking"
         />
-        <button type="submit" onClick={handleSaveCV}>
+        <button type="submit" className="editing" onClick={toggleSaveCV}>
           Save CV
         </button>
-        <button type="button">Edit CV</button>
       </form>
     </>
   );

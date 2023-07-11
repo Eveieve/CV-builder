@@ -73,3 +73,8 @@ button:focus-visible {
 button.hidden {
   display:none;
 }
+
+
+.editing {
+  display: flex;
+}
