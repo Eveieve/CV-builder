@@ -23,14 +23,12 @@ function EducationItem({ id, educationItem, onChange, onDelete }) {
         name="date"
         value={educationItem.date}
       />
-      <br />
       <input
         placeholder="Bsc. Computer Science"
         onChange={handleChange}
         name="major"
         value={educationItem.major}
       />
-      <br />
       <BulletPoints bulletPointObj={educationItem.bulletPoint} />
       <input
         placeholder="Bullet Point"
