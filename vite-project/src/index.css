@@ -85,24 +85,19 @@ body, html {
 form {
   display: flex;
   flex-direction: column;
-  max-width: 80%;
+  /* max-width: 80%; */
   height: auto;
 }
 
-
-input.name {
-  max-width: 10em;
-}
-input.title {
-  max-width: 10em;
-}
 .personal-one {
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
+  justify-content: center;
+  gap: 1rem;
 }
 .personal-two {
   display: flex;
+  justify-content: center;
+  gap: 1rem;
 }
 .hidden {
   display:none;
