@@ -3,19 +3,56 @@ function Personal({ ...props }) {
   /// spreading (...props) is only doing onChange = {onChange}
   return (
     <>
-      <input {...props} placeholder="Name" name="name" value={name} />
-      <input {...props} placeholder="Title" name="title" value={title} />
-      <br />
-      <input {...props} placeholder="Address" name="address" value={address} />
-      <input {...props} placeholder="Email" name="email" value={email} />
-      <input {...props} placeholder="Phone" name="phone" value={phone} />
       <input
         {...props}
+        className="personal-one name"
+        placeholder="Name"
+        name="name"
+        value={name}
+      />
+      <input
+        {...props}
+        className="personal-one title"
+        placeholder="Title"
+        name="title"
+        value={title}
+      />
+      <input
+        {...props}
+        className="personal-two"
+        placeholder="Address"
+        name="address"
+        value={address}
+      />
+      <input
+        {...props}
+        className="personal-two"
+        placeholder="Email"
+        name="email"
+        value={email}
+      />
+      <input
+        {...props}
+        className="personal-two"
+        placeholder="Phone"
+        type="tel"
+        name="phone"
+        value={phone}
+      />
+      <input
+        {...props}
+        className="personal-two"
         placeholder="LinkedIn"
         name="linkedIn"
         value={linkedIn}
       />
-      <input {...props} placeholder="GitHub" name="gitHub" value={gitHub} />
+      <input
+        {...props}
+        className="personal-two"
+        placeholder="GitHub"
+        name="gitHub"
+        value={gitHub}
+      />
     </>
   );
 }

@@ -69,7 +69,41 @@ button:focus-visible {
 }
 
 /*MY CSS*/
+* {
+  border: 2px green solid;
+  margin: 0;
+}
+body, html {
+  min-width: 100%;
+  height: auto;
+}
+#root {
+  min-width: 100%;
+  height: auto;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  height: auto;
+}
+
+
+input.name {
+  max-width: 10em;
+}
+input.title {
+  max-width: 10em;
+}
+.personal-one {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+}
+.personal-two {
+  display: flex;
+}
 .hidden {
   display:none;
 }
@@ -81,4 +115,10 @@ textarea[readonly] {
   height: 20px;
   width: 160px;
   color: #CCC;
+}
+
+/* a bit wonky */
+textarea {
+  min-width: 15rem;
+  min-height: 5rem; 
 }

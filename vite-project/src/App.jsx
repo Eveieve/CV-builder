@@ -17,6 +17,7 @@ function App() {
     email: "",
     linkedIn: "",
     gitHub: "",
+
     techSkills: {
       skills: "",
     },
