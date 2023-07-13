@@ -114,6 +114,10 @@ form {
   justify-content: center;
   gap: 1rem;
 }
+.personal-two input {
+  /* background-color: #599bff; */
+  max-width: 6rem;
+}
 .hidden {
   display:none;
 }
