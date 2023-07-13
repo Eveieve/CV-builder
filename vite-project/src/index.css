@@ -125,6 +125,9 @@ textarea[readonly] {
   color: #000000;
   
 }
+
+
+
 input:focus {
   outline:none;
 }
@@ -136,6 +139,12 @@ input {
 textarea:hover,
 input:hover {
   background-color: #adb5bd;
+}
+
+/* no hover when saved */
+input[readonly]:hover,
+textarea[readonly]:hover {
+  background-color: transparent;
 }
 /* a bit wonky */
 textarea {
