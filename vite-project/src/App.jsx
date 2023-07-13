@@ -250,6 +250,9 @@ function App() {
   return (
     <>
       <form onSubmit={handleSubmit}>
+        <button type="submit" className="saveCV editing" onClick={toggleSaveCV}>
+          Save CV
+        </button>
         <Personal onChange={handleChange} />
         <Section sectionName="TECHNICAL SKILLS" />
         <textarea
@@ -286,9 +289,6 @@ function App() {
           value={state.interests}
           placeholder="Technical Writing; UX Design; Photography; Baking"
         />
-        <button type="submit" className="saveCV editing" onClick={toggleSaveCV}>
-          Save CV
-        </button>
       </form>
     </>
   );

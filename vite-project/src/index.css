@@ -74,26 +74,34 @@ button:focus-visible {
   margin: 0;
 }
 
+
 #root {
-  min-width: 100%;
-  height: auto;
   width: 100%;  
   height: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
-  background-color: yellow;
+  background-color:#747bff;
 }
-
+.saveCV,
+.editing
+ {
+  background-color: #599bff;
+}
+.name {
+  font-size: large;
+}
 form {
+  border: 2px solid salmon;
   padding: 4rem;
   display: flex;
   flex-direction: column;
-  max-width: 70%;
-  /* min-height: 100%; */
+  max-width: 50%;
+  height: 50%;
   justify-content: center;
-  align-items: center;
-  background-color: #747bff;
+  /* align-items: center; */
+  background-color: #f7f7fb;
+  gap: 1rem;
 }
 
 .personal-one {
@@ -114,13 +122,32 @@ input[readonly],
 textarea[readonly] {
   background-color: transparent;
   border: 0px solid;
-  height: 20px;
-  width: 160px;
-  color: #CCC;
+  color: #000000;
+  
 }
-
+input:focus {
+  outline:none;
+}
+input {
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+textarea:hover,
+input:hover {
+  background-color: #adb5bd;
+}
 /* a bit wonky */
 textarea {
   min-width: 15rem;
   min-height: 5rem; 
+  overflow: auto;
+  resize: none;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+textarea:focus {
+  outline: none;
 }
