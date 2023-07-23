@@ -74,18 +74,16 @@ button:focus-visible {
   margin: 0;
 }
 
-
 #root {
-  width: 100%;  
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
-  background-color:#747bff;
+  background-color: #747bff;
 }
 .saveCV,
-.editing
- {
+.editing {
   background-color: #599bff;
 }
 .name {
@@ -119,7 +117,7 @@ form {
   max-width: 6rem;
 }
 .hidden {
-  display:none;
+  display: none;
 }
 
 input[readonly],
@@ -127,13 +125,10 @@ textarea[readonly] {
   background-color: transparent;
   border: 0px solid;
   color: #000000;
-  
 }
 
-
-
 input:focus {
-  outline:none;
+  outline: none;
 }
 input {
   border: none;
@@ -153,7 +148,7 @@ textarea[readonly]:hover {
 /* a bit wonky */
 textarea {
   min-width: 15rem;
-  min-height: 5rem; 
+  min-height: 5rem;
   overflow: auto;
   resize: none;
   border: none;

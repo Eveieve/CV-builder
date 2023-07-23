@@ -1,7 +1,7 @@
-import ProjectItem from "./ProjectItem";
+import ProjectItem from './ProjectItem';
 
 function Projects({ projects, onChange, onDelete }) {
-  const projectItems = projects.map((projectItem) => {
+  const projectItems = projects.map(projectItem => {
     return (
       <ProjectItem
         key={projectItem.id}

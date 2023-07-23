@@ -1,7 +1,7 @@
-import ExperienceItem from "./ExperienceItem";
+import ExperienceItem from './ExperienceItem';
 
 function Experiences({ onDelete, experiences, onChange }) {
-  const experienceItems = experiences.map((experienceItem) => {
+  const experienceItems = experiences.map(experienceItem => {
     return (
       <ExperienceItem
         key={experienceItem.id}

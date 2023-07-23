@@ -1,8 +1,8 @@
-import EducationItem from "./EducationItem";
+import EducationItem from './EducationItem';
 
 // read state.education array from its parent
 function Educations({ onDelete, educations, onChange }) {
-  const educationItems = educations?.map((educationItem) => {
+  const educationItems = educations?.map(educationItem => {
     return (
       <>
         <EducationItem

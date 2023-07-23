@@ -1,4 +1,4 @@
-import BulletPointItem from "./BulletPointItem";
+import BulletPointItem from './BulletPointItem';
 
 // Bulletpoints component represents a bulletPoints array for each section
 
@@ -14,7 +14,7 @@ function BulletPoints({ setState, bulletPoints, onChange, state }) {
   // comes with a button
   // console.log(bulletPoints);
 
-  const bulletPointItems = bulletPoints?.map((bulletPointItem) => {
+  const bulletPointItems = bulletPoints?.map(bulletPointItem => {
     return (
       <BulletPointItem
         key={bulletPointItem.id}

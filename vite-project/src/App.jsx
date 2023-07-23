@@ -1,58 +1,58 @@
-import "./App.css";
-import Personal from "./Personal";
-import Projects from "./Projects";
-import Experiences from "./Experience";
-import Educations from "./Education";
-import { useState } from "react";
-import Section from "./Section.jsx";
+import './App.css';
+import Personal from './Personal';
+import Projects from './Projects';
+import Experiences from './Experience';
+import Educations from './Education';
+import { useState } from 'react';
+import Section from './Section.jsx';
 
-import uniqid from "uniqid";
+import uniqid from 'uniqid';
 
 function App() {
   const [state, setState] = useState({
-    name: "",
-    title: "",
-    address: "",
-    phone: "",
-    email: "",
-    linkedIn: "",
-    gitHub: "",
+    name: '',
+    title: '',
+    address: '',
+    phone: '',
+    email: '',
+    linkedIn: '',
+    gitHub: '',
 
     techSkills: {
-      skills: "",
+      skills: '',
     },
     projects: [
       {
-        title: "",
-        bulletPoints: "",
+        title: '',
+        bulletPoints: '',
         id: uniqid(),
       },
     ],
 
     experiences: [
       {
-        company: "",
-        title: "",
-        date: "",
-        bulletPoints: "",
+        company: '',
+        title: '',
+        date: '',
+        bulletPoints: '',
         id: uniqid(),
       },
     ],
     educations: [
       {
-        name: "",
-        date: "",
-        major: "",
-        bulletPoints: "",
+        name: '',
+        date: '',
+        major: '',
+        bulletPoints: '',
         id: uniqid(),
       },
     ],
-    interests: "",
+    interests: '',
   });
 
   // handlers
   function handleChange(e) {
-    setState((prevState) => {
+    setState(prevState => {
       return {
         ...prevState,
         [e.target.name]: e.target.value,
@@ -63,7 +63,7 @@ function App() {
   function handleTechSkillsChange(e) {
     const { name, value } = e.target;
 
-    setState((prevState) => ({
+    setState(prevState => ({
       ...prevState,
       techSkills: {
         ...prevState.techSkills,
@@ -75,8 +75,8 @@ function App() {
   function handleProjectsChange(e, id) {
     const { name, value } = e.target;
 
-    setState((prevState) => {
-      const newProjects = prevState.projects.map((projectItem) => {
+    setState(prevState => {
+      const newProjects = prevState.projects.map(projectItem => {
         if (projectItem.id === id) {
           return { ...projectItem, [name]: value };
         }
@@ -88,13 +88,13 @@ function App() {
   }
 
   function handleAddProject() {
-    setState((prevState) => ({
+    setState(prevState => ({
       ...prevState,
       projects: [
         ...prevState.projects,
         {
-          title: "",
-          bulletPoints: "",
+          title: '',
+          bulletPoints: '',
           id: uniqid(),
         },
       ],
@@ -104,10 +104,10 @@ function App() {
   // which to delete? need to specify id
 
   function handleDeleteProject(e, id) {
-    setState((prevState) => {
+    setState(prevState => {
       // newProjects array that is filtered out
       const newProjects = prevState.projects.filter(
-        (projectItem) => id !== projectItem.id
+        projectItem => id !== projectItem.id,
       );
       return { ...prevState, projects: [...newProjects] };
     });
@@ -115,8 +115,8 @@ function App() {
 
   function handleExperienceChange(e, id) {
     const { name, value } = e.target;
-    setState((prevState) => {
-      const newExperiences = prevState.experiences.map((experienceItem) => {
+    setState(prevState => {
+      const newExperiences = prevState.experiences.map(experienceItem => {
         if (id === experienceItem.id) {
           return { ...experienceItem, [name]: value };
         }
@@ -128,15 +128,15 @@ function App() {
   }
 
   function handleAddExperience() {
-    setState((prevState) => ({
+    setState(prevState => ({
       ...prevState,
       experiences: [
         ...prevState.experiences,
         {
-          company: "",
-          title: "",
-          date: "",
-          bulletPoints: "",
+          company: '',
+          title: '',
+          date: '',
+          bulletPoints: '',
           id: uniqid(),
         },
       ],
@@ -150,9 +150,9 @@ function App() {
   // use this function to loop through the array and filter (make a new array) with only those with an unmatched id
   // new array is filled with objects that don't match the id
   function handleDeleteExperience(e, id) {
-    setState((prevState) => {
+    setState(prevState => {
       const newExperiences = prevState.experiences.filter(
-        (experienceItem) => id !== experienceItem.id
+        experienceItem => id !== experienceItem.id,
       );
 
       return { ...prevState, experiences: [...newExperiences] };
@@ -165,8 +165,8 @@ function App() {
 
   function handleEducationChange(e, id) {
     const { name, value } = e.target;
-    setState((prevState) => {
-      const newEducations = prevState.educations.map((educationItem) => {
+    setState(prevState => {
+      const newEducations = prevState.educations.map(educationItem => {
         if (id === educationItem.id) {
           return { ...educationItem, [name]: value };
         }
@@ -178,16 +178,16 @@ function App() {
   }
 
   function handleAddEducation() {
-    setState((prevState) => ({
+    setState(prevState => ({
       ...prevState,
       educations: [
         // copy all other educationItem objects
         ...prevState.educations,
         {
-          name: "",
-          date: "",
-          major: "",
-          bulletPoints: "",
+          name: '',
+          date: '',
+          major: '',
+          bulletPoints: '',
           id: uniqid(),
         },
       ],
@@ -205,10 +205,10 @@ function App() {
     console.log(e);
     // setState to set an updated state
     // filter educations array and recreate an array with items that don't match the id
-    setState((prevState) => {
+    setState(prevState => {
       // opening block
       const newEducations = prevState.educations.filter(
-        (educationItem) => id !== educationItem.id
+        educationItem => id !== educationItem.id,
       );
 
       return { ...prevState, educations: [...newEducations] };
@@ -217,7 +217,7 @@ function App() {
 
   function handleChangeInterests(e, id) {
     const { name, value } = e.target;
-    setState((prevState) => ({
+    setState(prevState => ({
       ...prevState,
       [name]: value,
     }));
@@ -227,23 +227,23 @@ function App() {
   // changes the text to 'Edit CV' at the end
   function toggleSaveCV(e) {
     // buttons except for SaveCV button
-    let buttons = document.querySelectorAll("button:not(.saveCV)");
+    let buttons = document.querySelectorAll('button:not(.saveCV)');
     console.log(buttons);
     let btnsArray = Array.from(buttons);
 
-    let inputs = document.querySelectorAll("input, textarea");
+    let inputs = document.querySelectorAll('input, textarea');
     console.log(inputs);
     let inputsArray = [...inputs];
-    if (e.target.classList.contains("editing")) {
-      btnsArray.map((btn) => (btn.className = "hidden"));
-      e.target.textContent = "Edit CV";
-      e.target.classList.toggle("editing");
-      inputsArray.map((input) => input.setAttribute("readonly", "readonly"));
+    if (e.target.classList.contains('editing')) {
+      btnsArray.map(btn => (btn.className = 'hidden'));
+      e.target.textContent = 'Edit CV';
+      e.target.classList.toggle('editing');
+      inputsArray.map(input => input.setAttribute('readonly', 'readonly'));
     } else {
-      btnsArray.map((btn) => (btn.className = "not-hidden"));
-      e.target.textContent = "Save CV";
-      e.target.classList.toggle("editing");
-      inputsArray.map((input) => input.removeAttribute("readonly"));
+      btnsArray.map(btn => (btn.className = 'not-hidden'));
+      e.target.textContent = 'Save CV';
+      e.target.classList.toggle('editing');
+      inputsArray.map(input => input.removeAttribute('readonly'));
     }
   }
 

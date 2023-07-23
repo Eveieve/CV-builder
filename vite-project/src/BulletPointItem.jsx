@@ -2,7 +2,7 @@
 // id is the bulletPointItem object's id
 
 // can I update the whole state object from here as well?
-import { useState } from "react";
+import { useState } from 'react';
 
 function BulletPointItem({ setState, state, bulletPointItem, id, onChange }) {
   // console.log(state);
@@ -13,7 +13,7 @@ function BulletPointItem({ setState, state, bulletPointItem, id, onChange }) {
   function updateStateOnChange(e) {
     const { name, value } = e.target;
 
-    setState((prevState) => ({
+    setState(prevState => ({
       ...prevState,
       educations: {
         ...prevState.educations,
