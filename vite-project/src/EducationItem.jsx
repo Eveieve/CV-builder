@@ -2,13 +2,14 @@ import BulletPoints from './BulletPoints';
 
 function EducationItem({ id, educationItem, onChange, onDelete }) {
   function handleChange(e) {
+    console.log(e);
     onChange(e, id);
   }
-  // define handleDelete with 'event' param
+
   function handleDelete(e) {
-    // call onDelete() function with the target element e, and id of educationItem
     onDelete(e, id);
   }
+
   return (
     <>
       <input

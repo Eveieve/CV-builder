@@ -50,7 +50,7 @@ function App() {
     interests: '',
   });
 
-  // handlers
+  // receive event as an argument
   function handleChange(e) {
     setState(prevState => {
       return {
@@ -73,11 +73,15 @@ function App() {
   }
 
   function handleProjectsChange(e, id) {
+    console.log(e.target);
     const { name, value } = e.target;
 
     setState(prevState => {
       const newProjects = prevState.projects.map(projectItem => {
         if (projectItem.id === id) {
+          console.log(name, value);
+          // each projectItem has a ''title' property
+          // target element's name attribute is set to 'title'
           return { ...projectItem, [name]: value };
         }
         return projectItem;
@@ -87,6 +91,7 @@ function App() {
     console.log(state);
   }
 
+  // add a new project
   function handleAddProject() {
     setState(prevState => ({
       ...prevState,
@@ -101,9 +106,7 @@ function App() {
     }));
   }
 
-  // which to delete? need to specify id
-
-  function handleDeleteProject(e, id) {
+  function handleDeleteProject(id) {
     setState(prevState => {
       // newProjects array that is filtered out
       const newProjects = prevState.projects.filter(
@@ -144,12 +147,7 @@ function App() {
     console.log(state.experiences);
   }
 
-  // function to handle deletion of experienceItem
-  // when e(event) happens..
-
-  // use this function to loop through the array and filter (make a new array) with only those with an unmatched id
-  // new array is filled with objects that don't match the id
-  function handleDeleteExperience(e, id) {
+  function handleDeleteExperience(id) {
     setState(prevState => {
       const newExperiences = prevState.experiences.filter(
         experienceItem => id !== experienceItem.id,
@@ -159,6 +157,7 @@ function App() {
     });
   }
 
+  // prevent refreshing page
   function handleSubmit(e) {
     e.preventDefault();
   }
@@ -194,11 +193,12 @@ function App() {
     }));
     console.log(state);
   }
-  // The deletion should be happening in Education Section - I need to delete on EducationItem on click of delete button.
+  // The deletion should be happening in Education Section,
+  // I need to delete on EducationItem on click of delete button.
   // You'll be able to call handleDeleteEducation() from EducationItem.js bc when you map the Educations array, you will return an element with a unique key for each.
   // And you can pass down id of each item to each EducationItem component - you can read the id  in EducationItem() component
 
-  // Think of it like this - the id of the each element in the array will be known to you.
+  //  id of the each element in the array will be known to you.
   // You just need to check to see if that id of the item(object) is equal to the one you read in your component
   // the id of the item(object) will be passed down from
   function handleDeleteEducation(e, id) {
@@ -215,7 +215,7 @@ function App() {
     });
   }
 
-  function handleChangeInterests(e, id) {
+  function handleChangeInterests(e) {
     const { name, value } = e.target;
     setState(prevState => ({
       ...prevState,

@@ -4,18 +4,16 @@ import EducationItem from './EducationItem';
 function Educations({ onDelete, educations, onChange }) {
   const educationItems = educations?.map(educationItem => {
     return (
-      <>
-        <EducationItem
-          key={educationItem.id}
-          educationItem={educationItem}
-          onChange={onChange}
-          id={educationItem.id}
-          onDelete={onDelete}
-        />
-      </>
+      <EducationItem
+        key={educationItem.id}
+        educationItem={educationItem}
+        onChange={onChange}
+        id={educationItem.id}
+        onDelete={onDelete}
+      />
     );
   });
-  return <>{educationItems}</>;
+  return educationItems;
 }
 
 export default Educations;
