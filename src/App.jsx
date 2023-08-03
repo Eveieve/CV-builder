@@ -74,6 +74,7 @@ function App() {
 
   function handleProjectsChange(e, id) {
     console.log(e.target);
+    console.log(e.target.name);
     const { name, value } = e.target;
 
     setState(prevState => {
@@ -230,7 +231,6 @@ function App() {
     let buttons = document.querySelectorAll('button:not(.saveCV)');
     console.log(buttons);
     let btnsArray = Array.from(buttons);
-
     let inputs = document.querySelectorAll('input, textarea');
     console.log(inputs);
     let inputsArray = [...inputs];
