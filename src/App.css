@@ -1,8 +1,106 @@
-.horizontalLine {
-  height: 1px;
-  background-color: black;
+#root {
+  width: 100vw;
+}
+body {
+  padding: 3rem;
+}
+* {
+padding: 0;
   margin: 0;
 }
-.sectionName {
-  margin-bottom: 0;
+
+.form-and-resume {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #f3f4f6;
+
+}
+
+.form {
+ margin: 3rem;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  height: 50%;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: #fdfdff;
+  gap: 1rem;
+}
+.saveCV,
+.editing {
+  background-color: #599bff;
+}
+.name {
+  font-size: large;
+}
+
+.personal-one {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.personal-two {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.personal-two input {
+  /* background-color: #599bff; */
+  max-width: 6rem;
+}
+.hidden {
+  display: none;
+}
+
+input[readonly],
+textarea[readonly] {
+  background-color: transparent;
+  border: 0px solid;
+  color: #000000;
+}
+
+input:focus {
+  outline: none;
+}
+input {
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+textarea:hover,
+input:hover {
+  background-color: #adb5bd;
+}
+
+/* no hover when saved */
+input[readonly]:hover,
+textarea[readonly]:hover {
+  background-color: transparent;
+}
+/* a bit wonky */
+textarea {
+  min-width: 15rem;
+  min-height: 5rem;
+  overflow: auto;
+  resize: none;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+
+.resume {
+  border: 2px solid green;
+  width: 80%;
+  background-color: white;
+  padding: 3rem;
+  margin: 3rem;
 }

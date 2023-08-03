@@ -7,7 +7,8 @@ import { useState } from 'react';
 import Section from './Section.jsx';
 
 import uniqid from 'uniqid';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const [state, setState] = useState({
     name: '',
@@ -249,47 +250,66 @@ function App() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <button type="submit" className="saveCV editing" onClick={toggleSaveCV}>
-          Save CV
-        </button>
-        <Personal onChange={handleChange} />
-        <Section sectionName="TECHNICAL SKILLS" />
-        <textarea
-          onChange={handleTechSkillsChange}
-          name="skills"
-          value={state.techSkills.skills}
-        />
-        <Section sectionName="PROJECTS" />
-        <Projects
-          onChange={handleProjectsChange}
-          projects={state.projects}
-          onDelete={handleDeleteProject}
-        />
+      <h1 className="app-title">CV Builder</h1>
+      <div className="form-and-resume">
+        <form className="form" onSubmit={handleSubmit}>
+          <button
+            className="saveCV editing"
+            type="submit"
+            onClick={toggleSaveCV}
+          >
+            Save CV
+          </button>
+          <Personal onChange={handleChange} />
+          <Section sectionName="TECHNICAL SKILLS" />
+          <textarea
+            onChange={handleTechSkillsChange}
+            name="skills"
+            value={state.techSkills.skills}
+          />
+          <Section sectionName="PROJECTS" />
+          <Projects
+            onChange={handleProjectsChange}
+            projects={state.projects}
+            onDelete={handleDeleteProject}
+          />
 
-        <button onClick={handleAddProject}>Add project</button>
-        <Section sectionName="EXPERIENCE" />
-        <Experiences
-          onChange={handleExperienceChange}
-          experiences={state.experiences}
-          onDelete={handleDeleteExperience}
-        />
-        <button onClick={handleAddExperience}>Add Experience</button>
-        <Section sectionName="EDUCATION" />
-        <Educations
-          onChange={handleEducationChange}
-          educations={state.educations}
-          onDelete={handleDeleteEducation}
-        />
-        <button onClick={handleAddEducation}>Add Education</button>
-        <Section sectionName="INTERESTS" />
-        <textarea
-          onChange={handleChangeInterests}
-          name="interests"
-          value={state.interests}
-          placeholder="Technical Writing; UX Design; Photography; Baking"
-        />
-      </form>
+          <button onClick={handleAddProject}>Add project</button>
+          <Section sectionName="EXPERIENCE" />
+          <Experiences
+            onChange={handleExperienceChange}
+            experiences={state.experiences}
+            onDelete={handleDeleteExperience}
+          />
+          <button onClick={handleAddExperience}>Add Experience</button>
+          <Section sectionName="EDUCATION" />
+          <Educations
+            onChange={handleEducationChange}
+            educations={state.educations}
+            onDelete={handleDeleteEducation}
+          />
+          <button onClick={handleAddEducation}>Add Education</button>
+          <Section sectionName="INTERESTS" />
+          <textarea
+            onChange={handleChangeInterests}
+            name="interests"
+            value={state.interests}
+            placeholder="Technical Writing; UX Design; Photography; Baking"
+          />
+        </form>
+        <div className="resume">
+          <div className="cv-header">
+            <div className="cv-name"></div>
+            <div className="cv-position"></div>
+            <div className="cv-contacts">
+              <div className="cv-city"></div>
+              <div className="cv-phone"></div>
+              <div className="cv-email"></div>
+              <div className="cv-github"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
