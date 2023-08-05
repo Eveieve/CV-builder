@@ -248,11 +248,15 @@ function App() {
 
   return (
     <>
-      <h1 className="text-5xl font-bold underline">CV Builder</h1>
-      <div className="form-and-resume">
-        <form className="form" onSubmit={handleSubmit}>
+      <h1 class="text-5xl font-bold underline p-6 ">CV Builder</h1>
+      <div className="form-and-resume flex p-6 shadow-lg rounded-xl">
+        <form
+          className="form grid gap-6 mb-6 md:grid-cols-2 shadow-xl p-6"
+          onSubmit={handleSubmit}
+        >
           <button
-            className="saveCV editing"
+            className="saveCV editing bg-violet-500 hover:bg-violet-600 active:bg-violet-700      
+            focus:outline-none focus:ring focus:ring-violet-300 rounded-xl"
             type="submit"
             onClick={toggleSaveCV}
           >
