@@ -5,10 +5,8 @@ import Experiences from './Experience';
 import Educations from './Education';
 import { useState } from 'react';
 import Section from './Section.jsx';
-
 import uniqid from 'uniqid';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   const [state, setState] = useState({
     name: '',
@@ -250,7 +248,7 @@ function App() {
 
   return (
     <>
-      <h1 className="app-title">CV Builder</h1>
+      <h1 className="text-5xl font-bold underline">CV Builder</h1>
       <div className="form-and-resume">
         <form className="form" onSubmit={handleSubmit}>
           <button

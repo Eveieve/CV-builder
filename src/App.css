@@ -1,4 +1,9 @@
-#root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* #root {
   width: 100vw;
 }
 body {
@@ -17,7 +22,9 @@ padding: 0;
   background-color: #f3f4f6;
 
 }
-
+.resume {
+  font-family: 'Times New Roman', Times, serif;
+}
 .form {
  margin: 3rem;
   padding: 3rem;
@@ -26,7 +33,6 @@ padding: 0;
   max-width: 50%;
   height: 50%;
   justify-content: center;
-  /* align-items: center; */
   background-color: #fdfdff;
   gap: 1rem;
 }
@@ -49,7 +55,6 @@ padding: 0;
   gap: 1rem;
 }
 .personal-two input {
-  /* background-color: #599bff; */
   max-width: 6rem;
 }
 .hidden {
@@ -76,12 +81,12 @@ input:hover {
   background-color: #adb5bd;
 }
 
-/* no hover when saved */
+
 input[readonly]:hover,
 textarea[readonly]:hover {
   background-color: transparent;
 }
-/* a bit wonky */
+
 textarea {
   min-width: 15rem;
   min-height: 5rem;
@@ -103,4 +108,4 @@ textarea:focus {
   background-color: white;
   padding: 3rem;
   margin: 3rem;
-}
+} */
