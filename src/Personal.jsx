@@ -1,6 +1,63 @@
+import { useState } from 'react';
+
+import PersonalInfoForm from './PersonalInfoForm';
+
+// returns an object with keys
+// each key is empty initially
+const getEmptyPersonalInfo = () => {
+  const keys = [
+    'name',
+    'jobTitle',
+    'email',
+    'address',
+    'phone',
+    'linkedin',
+    'github',
+  ];
+  return keys.reduce((obj, key) => {
+    obj[key] = '';
+    return obj;
+  }, {});
+};
+
+function PersonalInfo() {
+  const [info, setInfo] = useState(getEmptyPersonalInfo());
+  const [isFormShown, setIsFormShown] = useState(false);
+
+  const toggleForm = () => setIsFormShown(true);
+
+  const submitPersonalInfo = e => {
+    e.preventDefault();
+
+    setIsFormShown(false);
+  };
+
+  const handleChange = e => {
+    // destructure  from target element
+    const { nameOfTarget, value } = e.target;
+
+    setInfo({
+      ...info,
+      [nameOfTarget]: value,
+    });
+  };
+  if (isFormShown) {
+    return (
+      <PersonalInfoForm
+        info={info}
+        handleSubmit={submitPersonalInfo}
+        handleChange={handleChange}
+      />
+    );
+  }
+
+  return <GeneralInfoDisplay info={info} clickHandler={toggleForm} />;
+}
+
+//////////////////////////////////////////////////////////////////////////////
 function Personal({ ...props }) {
   const { name, title, address, email, phone, linkedIn, gitHub } = { props };
-  /// spreading (...props) is only doing onChange = {onChange}
+
   return (
     <>
       <label for="name" class="block text-slate-700">
