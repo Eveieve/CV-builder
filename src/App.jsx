@@ -1,5 +1,5 @@
 import './App.css';
-import Personal from './Personal';
+import Personal from './PersonalInfo';
 import Projects from './Projects';
 import Experiences from './Experience';
 import Educations from './Education';
