@@ -29,10 +29,9 @@ function PersonalInfo() {
 
   const toggleForm = () => setIsFormShown(prevState => !prevState);
 
-  const submitPersonalInfo = event => {
+  const handleSubmit = event => {
     // STOP REFRESHING!
     event.preventDefault();
-
     setIsFormShown(prevState => !prevState);
   };
 
@@ -52,7 +51,7 @@ function PersonalInfo() {
     return (
       <PersonalInfoForm
         infoObj={infoObj}
-        handleSubmit={submitPersonalInfo}
+        handleSubmit={handleSubmit}
         handleChange={handleChange}
       />
     );

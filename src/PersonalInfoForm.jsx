@@ -92,7 +92,7 @@ function PersonalInfoForm(props) {
           </div>
         </div>
         <div>
-          <Button type="submit" text="Add Information" />
+          <Button type="button" text="Add Information" handler={handleSubmit} />
         </div>
       </form>
     </div>
