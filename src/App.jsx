@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Section from './Section.jsx';
 import uniqid from 'uniqid';
 
+import PersonalInfo from './PersonalInfo';
 function App() {
   const [state, setState] = useState({
     name: '',
@@ -224,45 +225,17 @@ function App() {
     console.log(state);
   }
 
-  // changes the text to 'Edit CV' at the end
-  function toggleSaveCV(e) {
-    // buttons except for SaveCV button
-    let buttons = document.querySelectorAll('button:not(.saveCV)');
-    console.log(buttons);
-    let btnsArray = Array.from(buttons);
-    let inputs = document.querySelectorAll('input, textarea');
-    console.log(inputs);
-    let inputsArray = [...inputs];
-    if (e.target.classList.contains('editing')) {
-      btnsArray.map(btn => (btn.className = 'hidden'));
-      e.target.textContent = 'Edit CV';
-      e.target.classList.toggle('editing');
-      inputsArray.map(input => input.setAttribute('readonly', 'readonly'));
-    } else {
-      btnsArray.map(btn => (btn.className = 'not-hidden'));
-      e.target.textContent = 'Save CV';
-      e.target.classList.toggle('editing');
-      inputsArray.map(input => input.removeAttribute('readonly'));
-    }
-  }
-
   return (
     <>
-      <h1 class="text-5xl font-bold underline p-6 ">CV Builder</h1>
-      <div className="form-and-resume flex p-6 shadow-lg rounded-xl">
+      <div className=" bg-gradient-to-r from-purple-300 to-blue-300  flex flex-col justify-center p-6 shadow-lg rounded-xl">
+        <h1 className="text-5xl font-bold text-purple-500 text- p-6 ">
+          CV Builder
+        </h1>
         <form
-          className="form grid gap-6 mb-6 md:grid-cols-2 shadow-xl p-6"
+          className="form grid gap-6 mb-6  shadow-xl p-6"
           onSubmit={handleSubmit}
         >
-          <button
-            className="saveCV editing bg-violet-500 hover:bg-violet-600 active:bg-violet-700      
-            focus:outline-none focus:ring focus:ring-violet-300 rounded-xl"
-            type="submit"
-            onClick={toggleSaveCV}
-          >
-            Save CV
-          </button>
-          <Personal onChange={handleChange} />
+          <PersonalInfo />
           <Section sectionName="TECHNICAL SKILLS" />
           <textarea
             onChange={handleTechSkillsChange}

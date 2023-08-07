@@ -1,8 +1,10 @@
 # CV-creator
 
 ## Technologies 
-React, Vite, Tailwind
+React, Tailwind
 
+## Components structure 
+ 
 ## Features 
 
 ## Features to add
