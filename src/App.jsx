@@ -1,6 +1,6 @@
 import './App.css';
 import Personal from './PersonalInfo';
-import Projects from './Projects';
+//import Projects from './Projects';
 import Experiences from './Experience';
 import Educations from './Education';
 import { useState } from 'react';
@@ -9,6 +9,7 @@ import uniqid from 'uniqid';
 
 import PersonalInfo from './PersonalInfo';
 import Skills from './Skills';
+import Projects from './Projects';
 function App() {
   const [state, setState] = useState({
     projects: [
@@ -58,31 +59,6 @@ function App() {
       return { ...prevState, projects: [...newProjects] };
     });
     console.log(state);
-  }
-
-  // add a new project
-  function handleAddProject() {
-    setState(prevState => ({
-      ...prevState,
-      projects: [
-        ...prevState.projects,
-        {
-          title: '',
-          bulletPoints: '',
-          id: uniqid(),
-        },
-      ],
-    }));
-  }
-
-  function handleDeleteProject(id) {
-    setState(prevState => {
-      // newProjects array that is filtered out
-      const newProjects = prevState.projects.filter(
-        projectItem => id !== projectItem.id,
-      );
-      return { ...prevState, projects: [...newProjects] };
-    });
   }
 
   function handleExperienceChange(e, id) {
@@ -200,35 +176,29 @@ function App() {
           CV Builder
         </h1>
         <form
-          className="form grid gap-2 mb-6 shadow-xl p-6"
+          className="flex flex-col w-6/12 gap-2 mb-6 shadow-xl p-6"
           onSubmit={handleSubmit}
         >
           <PersonalInfo />
-          <Section sectionName="TECHNICAL SKILLS" className="m-0" />
+          <Section sectionName="Skills" className="m-0" />
           <Skills />
-          <Section sectionName="PROJECTS" />
-          <Projects
-            onChange={handleProjectsChange}
-            projects={state.projects}
-            onDelete={handleDeleteProject}
-          />
-
-          <button onClick={handleAddProject}>Add project</button>
-          <Section sectionName="EXPERIENCE" />
+          <Section sectionName="Projects" />
+          <Projects />
+          <Section sectionName="Experience" />
           <Experiences
             onChange={handleExperienceChange}
             experiences={state.experiences}
             onDelete={handleDeleteExperience}
           />
           <button onClick={handleAddExperience}>Add Experience</button>
-          <Section sectionName="EDUCATION" />
+          <Section sectionName="Education" />
           <Educations
             onChange={handleEducationChange}
             educations={state.educations}
             onDelete={handleDeleteEducation}
           />
           <button onClick={handleAddEducation}>Add Education</button>
-          <Section sectionName="INTERESTS" />
+          <Section sectionName="Interests" />
           <textarea
             onChange={handleChangeInterests}
             name="interests"

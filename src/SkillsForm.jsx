@@ -6,6 +6,7 @@ function SkillsForm(props) {
   return (
     <>
       <textarea
+        className="rounded-lg"
         value={skills}
         type="text"
         onChange={handleChange}
