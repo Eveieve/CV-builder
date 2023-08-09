@@ -23,15 +23,16 @@ function Projects() {
 
   const deleteProject = id => {
     const newProjects = projects.filter(item => item.id !== id);
-
+    console.log(newProjects);
     setProjects(() => [newProjects]);
+    if (projects.length === 1) {
+      setIsFormShown(false);
+      return <>{setProjects([])}</>;
+    }
   };
 
   if (isFormShown) {
     const projectItems = projects?.map(item => {
-      console.log(projects);
-      console.log(typeof projects);
-
       return (
         <>
           <ProjectsForm
