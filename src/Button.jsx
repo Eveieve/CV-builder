@@ -4,7 +4,7 @@ const STYLES_MAP = new Map([
 ]);
 
 function Button(props) {
-  const { type, handler, value, styles } = props;
+  const { type, handler, value, styles, handleSave } = props;
 
   // if you can 'styles' passed down to it, use that for styling
   // If not => "primary"

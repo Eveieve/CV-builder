@@ -1,6 +1,8 @@
 import Button from './Button';
 
 export default function PersonalInfoDisplay({ infoObj, clickHandler }) {
+  // check if every filed is empty
+  // by checking the values of keys in the infoObj
   const isEmpty = () => Object.values(infoObj).every(field => field === '');
 
   const { name, jobTitle, summary, email, address, phone, linkedin, github } =

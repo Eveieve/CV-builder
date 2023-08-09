@@ -5,20 +5,16 @@ import PersonalInfoDisplay from './PersonalInfoDisplay';
 // returns an object with keys
 // each key is empty initially
 const getEmptyPersonalInfo = () => {
-  const keys = [
-    'name',
-    'jobTitle',
-    'summary',
-    'email',
-    'address',
-    'phone',
-    'linkedin',
-    'github',
-  ];
-  return keys.reduce((obj, key) => {
-    obj[key] = '';
-    return obj;
-  }, {});
+  return {
+    name: '',
+    jobTitle: '',
+    summary: '',
+    email: '',
+    address: '',
+    phone: '',
+    linkedin: '',
+    github: '',
+  };
 };
 
 // Handles PersonalInfo section

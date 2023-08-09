@@ -8,19 +8,9 @@ import Section from './Section.jsx';
 import uniqid from 'uniqid';
 
 import PersonalInfo from './PersonalInfo';
+import Skills from './Skills';
 function App() {
   const [state, setState] = useState({
-    name: '',
-    title: '',
-    address: '',
-    phone: '',
-    email: '',
-    linkedIn: '',
-    gitHub: '',
-
-    techSkills: {
-      skills: '',
-    },
     projects: [
       {
         title: '',
@@ -49,28 +39,6 @@ function App() {
     ],
     interests: '',
   });
-
-  // receive event as an argument
-  function handleChange(e) {
-    setState(prevState => {
-      return {
-        ...prevState,
-        [e.target.name]: e.target.value,
-      };
-    });
-  }
-
-  function handleTechSkillsChange(e) {
-    const { name, value } = e.target;
-
-    setState(prevState => ({
-      ...prevState,
-      techSkills: {
-        ...prevState.techSkills,
-        [name]: value,
-      },
-    }));
-  }
 
   function handleProjectsChange(e, id) {
     console.log(e.target);
@@ -232,16 +200,12 @@ function App() {
           CV Builder
         </h1>
         <form
-          className="form grid gap-6 mb-6  shadow-xl p-6"
+          className="form grid gap-2 mb-6 shadow-xl p-6"
           onSubmit={handleSubmit}
         >
           <PersonalInfo />
-          <Section sectionName="TECHNICAL SKILLS" />
-          <textarea
-            onChange={handleTechSkillsChange}
-            name="skills"
-            value={state.techSkills.skills}
-          />
+          <Section sectionName="TECHNICAL SKILLS" className="m-0" />
+          <Skills />
           <Section sectionName="PROJECTS" />
           <Projects
             onChange={handleProjectsChange}
