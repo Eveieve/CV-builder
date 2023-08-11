@@ -3,6 +3,7 @@ import uniqid from 'uniqid';
 import ProjectsForm from './ProjectsForm';
 import ProjectsDisplay from './ProjectsDisplay';
 import Button from './Button';
+
 // put together all projects components
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -23,40 +24,42 @@ function Projects() {
 
   const deleteProject = id => {
     const newProjects = projects.filter(item => item.id !== id);
-    console.log(newProjects);
-    setProjects(() => [newProjects]);
+
     if (projects.length === 1) {
+      setProjects([]);
       setIsFormShown(false);
-      return <>{setProjects([])}</>;
+    } else {
+      setIsFormShown(true);
+      setProjects(newProjects);
     }
   };
 
+  const projectItems = projects?.map(item => {
+    return (
+      <div key={item.id}>
+        <ProjectsForm
+          id={item.id}
+          handleDelete={deleteProject}
+          handleAdd={addProject}
+        />
+        <Button text="Add Project" handler={addProject} />
+      </div>
+    );
+  });
+
   if (isFormShown) {
-    const projectItems = projects?.map(item => {
-      return (
-        <>
-          <ProjectsForm
-            key={item.id}
-            id={item.id}
-            handleDelete={deleteProject}
-            handleAdd={addProject}
-          />
-          <Button text="Add Projects" handler={addProject} />
-        </>
-      );
-    });
-    return <>{projectItems}</>;
+    return projectItems;
   }
 
   return (
-    <>
+    <div>
       <ProjectsDisplay
         projects={projects}
         handleAdd={addProject}
         handleDelete={deleteProject}
       />
-      <Button text="Add Projects" handler={addProject} />
-    </>
+      <Button text="Add Project" handler={addProject} />
+    </div>
   );
 }
 
