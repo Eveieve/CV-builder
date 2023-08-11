@@ -1,5 +1,4 @@
 function ProjectsDisplay({ projects }) {
-  //const { value } = props;
   console.log(projects);
   return (
     <>

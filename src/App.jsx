@@ -1,25 +1,15 @@
 import './App.css';
-import Personal from './PersonalInfo';
-//import Projects from './Projects';
-import Experiences from './Experience';
+import PersonalInfo from './PersonalInfo';
+import Skills from './Skills';
+import Projects from './Projects';
 import Educations from './Education';
+import Experiences from './Experience';
 import { useState } from 'react';
 import Section from './Section.jsx';
 import uniqid from 'uniqid';
 
-import PersonalInfo from './PersonalInfo';
-import Skills from './Skills';
-import Projects from './Projects';
 function App() {
   const [state, setState] = useState({
-    projects: [
-      {
-        title: '',
-        bulletPoints: '',
-        id: uniqid(),
-      },
-    ],
-
     experiences: [
       {
         company: '',
@@ -40,26 +30,6 @@ function App() {
     ],
     interests: '',
   });
-
-  function handleProjectsChange(e, id) {
-    console.log(e.target);
-    console.log(e.target.name);
-    const { name, value } = e.target;
-
-    setState(prevState => {
-      const newProjects = prevState.projects.map(projectItem => {
-        if (projectItem.id === id) {
-          console.log(name, value);
-          // each projectItem has a ''title' property
-          // target element's name attribute is set to 'title'
-          return { ...projectItem, [name]: value };
-        }
-        return projectItem;
-      });
-      return { ...prevState, projects: [...newProjects] };
-    });
-    console.log(state);
-  }
 
   function handleExperienceChange(e, id) {
     const { name, value } = e.target;
@@ -206,18 +176,6 @@ function App() {
             placeholder="Technical Writing; UX Design; Photography; Baking"
           />
         </form>
-        <div className="resume">
-          <div className="cv-header">
-            <div className="cv-name"></div>
-            <div className="cv-position"></div>
-            <div className="cv-contacts">
-              <div className="cv-city"></div>
-              <div className="cv-phone"></div>
-              <div className="cv-email"></div>
-              <div className="cv-github"></div>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );

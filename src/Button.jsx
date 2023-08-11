@@ -6,8 +6,6 @@ const STYLES_MAP = new Map([
 function Button(props) {
   const { type, handler, value, styles } = props;
 
-  // if you can 'styles' passed down to it, use that for styling
-  // If not => "primary"
   const colors = STYLES_MAP.get(styles || 'primary');
 
   return (
